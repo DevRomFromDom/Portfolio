@@ -1,4 +1,7 @@
-# Учебный шаблон проекта Portfolio
+# Учебный проект Portfolio
+
+Автор: Каменских Роман Андреевич
+
 
 > Перед установкой зависимостей и запуском проекта убедитесь, что у вас установлена [последняя версия Node.js & NPM](https://nodejs.org/en/download/current/), а так же 
 [последняя версия Yarn](https://classic.yarnpkg.com/en/docs/install)

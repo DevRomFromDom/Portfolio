@@ -8,8 +8,79 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Portfolio | main page
   body
-    .wrapper
-      .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+    .page
+      .main_container
+        .initials BA
+          .menu_container
+            +link("Обо мне","about_me")
+            +link("Навыки","skill")
+            +link("Работы","progects")
+            +link("Отзывы","reviews")
+        .social_icons_container
+          .insta
+          .vk
+          .github
+          .envelope
+        .site_meaning Личный сайт <br/> веб разработчика
+        .name Владимир Астаханов
+        .scroll
+          .text Скролл
+          .scroll_arrows
+      .about_me_container
+        +image("content/user.jpg","avatar")
+        .info_about_me  
+          .key_live Проживаю:
+          .key_age Возраст:
+          .key_born Родился:
+          .value_live Новосибирск
+          .value_age 27 лет
+          .value_born 1 января 1991
+        .text_about_me
+          .hello Привет, меня зовут
+          .text_name Владимир Астаханов
+          .my_aim Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+          .progect_aim Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!     
+          .star *
+      .skills_container
+        .skills_title Чем я могу быть полезен вам
+        .skills_text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+        .skills_frontend 
+          .skills_frontend_tilte Front-end
+            .skill_html
+            .skill_html_title HTML5
+            .skill_html_elipse
+            .skill_css
+            .skill_css_elipse
+            .skill_css_title CSS3
+            .skill_js 
+            .skill_js_title Javascript
+            .skill_jq_vue 
+            .skill_jq_vue_title Jquery <br/>и Vue.js
+        .skills_workflow
+          .skill_workflow_title Workflow
+          .skill_workflow_git 
+          .skill_workflow_git_title GIT
+          .skill_workflow_terminal 
+          .skill_workflow_terminal_title Terminal
+          .skill_workflow_gulp 
+          .skill_workflow_gulp_title Gulp
+          .skill_workflow_webpack 
+          .skill_workflow_webpack_title Webpack
+        +image('content/guitar.png',"guitar")  
+      .projects_container
+        .projects_title Мои работы
+        .projects_slider 
+        .projects_info 
+          .projects_info_tags
+            .tag HTML
+            .tag CSS
+            .tag Javascript
+          .projects_info_title Сайт школы <br/> образования
+          .projects_info_text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool!<br/> 2 месяца только самых тяжелых испытаний и бессонных ночей!
+          .projects_info_link 
+            .projects_info_link_icon 
+            .projects_info_link_text Посмотреть сайт
+        .projects_print_two 2
+      .reviews
+      .footer
+      .background_image

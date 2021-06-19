@@ -1,0 +1,233 @@
+.page {
+    position: relative;
+    width: 1800PX;
+    height: 5187PX;
+    border-radius: 0PX;
+    background: #ffffff;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.background_image {
+    position: absolute;
+    width: 1800PX;
+    height: 1788PX;
+    left: 0PX;
+    top: 0PX;
+    opacity: 1;
+    background: url(/src/images/content/rockfest.png);
+    z-index: -2;
+}
+
+.main_container {
+    position: absolute;
+    width: 1475PX;
+    height: 897.12PX;
+    left: 158PX;
+    top: 58PX;
+    z-index: 1;
+}
+.menu_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0PX;
+    position: absolute;
+    width: 428PX;
+    height: 22PX;
+    text-decoration: none;
+    left: 442PX;
+    top: 12PX;
+}
+.link {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16PX;
+    line-height: 22PX;
+    color: white;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.about_me {
+    position: static;
+    width: 67PX;
+    height: 22PX;
+}
+.skill {
+    position: static;
+    width: 61PX;
+    height: 22PX;
+    left: 127PX;
+    top: 0PX;
+}
+.progects {
+    position: static;
+    width: 58PX;
+    height: 22PX;
+    left: 248PX;
+    top: 0PX;
+}
+.reviews {
+    position: static;
+    width: 62PX;
+    height: 22PX;
+    left: 366PX;
+    top: 0PX;
+}
+.initials {
+    position: absolute;
+    width: 51PX;
+    height: 49PX;
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36PX;
+    line-height: 49PX;
+
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+// icons
+.social_icons_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-items: center;
+    padding: 0PX;
+    position: absolute;
+    width: 228PX;
+    height: 32PX;
+    left: 1247PX;
+    top: 6PX;
+}
+.insta {
+    background: svg-load(
+        "insta.svg",
+        fill=rgba(255, 255, 255, 0.3),
+        width=25PX,
+        height=25PX
+    );
+    cursor: pointer;
+    height: 25PX;
+    width: 25PX;
+    border-radius: 0PX;
+}
+.vk {
+    height: 18.26PX;
+    width: 32PX;
+    background: svg-load(
+        "vk.svg",
+        fill=rgba(255, 255, 255, 0.3),
+        width=32PX,
+        height=18.26PX
+    );
+    cursor: pointer;
+    border-radius: 0PX;
+}
+.github {
+    height: 21.15PX;
+    width: 25PX;
+    background: svg-load(
+        "github.svg",
+        fill=rgba(255, 255, 255, 0.3),
+        width=25PX,
+        height=21.15PX
+    );
+    cursor: pointer;
+    border-radius: 0PX;
+}
+.envelope {
+    height: 21.75PX;
+    width: 29PX;
+    background: svg-load(
+        "envelope.svg",
+        fill=rgba(255, 255, 255, 0.3),
+        width=29PX,
+        height=21.75PX
+    );
+    cursor: pointer;
+    border-radius: 0PX;
+}
+.name {
+    position: absolute;
+    width: 427PX;
+    height: 120PX;
+    left: 533PX;
+    top: 425PX;
+
+    /* Desktop/h1 */
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 72PX;
+    line-height: 60PX;
+    /* or 83% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* white */
+
+    color: #ffffff;
+}
+.site_meaning {
+    position: absolute;
+    width: 165PX;
+    height: 60PX;
+    left: 312PX;
+    top: 426PX;
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18PX;
+    line-height: 30PX;
+    /* or 167% */
+
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+    /* white 50% */
+
+    color: rgba(255, 255, 255, 0.5);
+}
+.scroll {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 94.41PX;
+    height: 14.12PX;
+    left: 695PX;
+    top: 883PX;
+}
+.text {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18PX;
+    line-height: 25PX;
+    display: flex;
+    align-items: center;
+
+    color: #ffffff;
+}
+.scroll_arrows {
+    height: 13.41PX;
+    width: 13.12PX;
+    border-radius: 0PX;
+    background: svg-load(
+        "scroll.svg",
+        fill= "#FFFFFF",
+        width= 13.12PX,
+        height= 13.41PX
+    );
+}
