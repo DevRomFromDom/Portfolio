@@ -93,6 +93,29 @@ html(lang="en")
               .projects_info_link_icon 
             .projects_info_link_text Посмотреть сайт
         .projects_print_two 2
-      .reviews
+      .reviews_container
+        +image("content/guitarist.png",'guitarist')
+        .reviews_container_title Что обо мне говорят
+        .reviews_container_nav 
+          .ellipse_nav
+            .nav_arrow_passed 
+          .ellipse_nav 
+            .nav_arrow_next
+        .reviews_container_reviews
+          .first_review 
+            .quote
+            .first_review_text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+            .first_review_author
+              +image("content/Dmitriy.png","author_avatar")
+              .author_name Ковальчук Дмитрий
+              .first_author_job Основатель Loftschool
+          .second_review 
+            .quote
+            .second_review_text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+            .second_review_author
+              +image("content/Vladimir.png","author_avatar")
+              .author_name Владимир Сабанцев
+              .second_author_job Преподаватель
+
       .footer
       .background_image
