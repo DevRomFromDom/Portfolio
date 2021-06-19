@@ -1,0 +1,75 @@
+.projects_slider {
+    position: absolute;
+    width: 1028PX;
+    height: 549PX;
+    left: 0PX;
+    top: 132PX;
+}
+.projects_preview {
+    width: 975PX;
+    height: 549PX;
+    z-index: -10;
+}
+.small_preview {
+    z-index: 2;
+    height: 103PX;
+    width: 183PX;
+    border-radius: 0PX;
+}
+.projects_mini {
+    display: flex;
+    position: absolute;
+    width: 717PX;
+    height: 103PX;
+    left: 258PX;
+    top: 388PX;
+}
+.projects_arrows {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 105.75PX;
+    width: 53PX;
+    left: 975PX;
+    top: 388PX;
+    border-radius: 0PX;
+}
+.project_slider_next {
+    height: 52.87PX;
+    width: 53PX;
+    background: #333c49;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.project_slider_passed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 52.87PX;
+    width: 53PX;
+    background: #333c49;
+    cursor: pointer;
+}
+.arrow_next {
+    height: 17.37PX;
+    width: 10PX;
+   
+    background: svg-load(
+        "arrowNext.svg",
+        fill=#FFFFFF,
+        width=100%,
+        height=100%
+    );
+}
+.arrow_passed {
+    height: 17.37PX;
+    width: 10PX;
+    background: svg-load(
+        "arrowPassed.svg",
+        fill=#717883,
+        width=100%,
+        height=100%
+    );
+}

@@ -70,6 +70,17 @@ html(lang="en")
       .projects_container
         .projects_title Мои работы
         .projects_slider 
+          .projects_mini
+            +image('content/preview.jpg','preview1 small_preview')
+            +image('content/preview2.jpg','preview2 small_preview')
+            +image('content/preview3.jpg','preview3 small_preview')
+            +image('content/preview4.jpg','previe4 small_preview')
+          +image('content/preview.jpg','projects_preview')
+          .projects_arrows
+            .project_slider_next 
+              .arrow_next
+            .project_slider_passed 
+              .arrow_passed
         .projects_info 
           .projects_info_tags
             .tag HTML
@@ -78,7 +89,8 @@ html(lang="en")
           .projects_info_title Сайт школы <br/> образования
           .projects_info_text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool!<br/> 2 месяца только самых тяжелых испытаний и бессонных ночей!
           .projects_info_link 
-            .projects_info_link_icon 
+            .projects_info_link_icon_container 
+              .projects_info_link_icon 
             .projects_info_link_text Посмотреть сайт
         .projects_print_two 2
       .reviews
