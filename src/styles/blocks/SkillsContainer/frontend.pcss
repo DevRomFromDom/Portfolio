@@ -1,8 +1,8 @@
 .skill_html {
     position: absolute;
-    width: 138PX;
-    height: 138PX;
-    left: 8.84PX;
+    width: 139PX;
+    height: 139PX;
+    left: 5PX;
     top: 69PX;
     mix-blend-mode: normal;
     opacity: 0.1;
@@ -23,12 +23,26 @@
     display: flex;
     align-items: center;
     color: rgba(16, 0, 34, 0.5);
+    z-index: 3;
+}
+.skill_html_ellipse {
+    position: absolute;
+    height: 77PX;
+    width: 77PX;
+    left: -2PX;
+    top: 63PX;
+    background: svg-load(
+        "htmlEllipse.svg",
+        fill=rgba(255, 255, 255, 1),
+        width=77PX,
+        height=77PX
+    );
 }
 
 .skill_css {
     position: absolute;
-    width: 138PX;
-    height: 138PX;
+    width: 139PX;
+    height: 139PX;
     left: 208PX;
     top: 69PX;
     mix-blend-mode: normal;
@@ -37,7 +51,6 @@
     border: 8PX solid #313131;
     border-radius: 100%;
 }
-
 .skill_css_title {
     /* CSS3 */
 
@@ -64,10 +77,24 @@
     color: rgba(16, 0, 34, 0.5);
 }
 
+.skill_css_ellipse {
+    position: absolute;
+    height: 54PX;
+    width: 38PX;
+    left: 201PX;
+    top: 85PX;
+    background: svg-load(
+        "cssEllipse.svg",
+        fill=rgba(255, 255, 255, 0.3),
+        width=38PX,
+        height=54PX
+    );
+}
+
 .skill_js {
     position: absolute;
-    width: 138PX;
-    height: 138PX;
+    width: 139PX;
+    height: 139PX;
     left: 410PX;
     top: 70PX;
 
@@ -102,10 +129,24 @@
     color: rgba(16, 0, 34, 0.5);
 }
 
+.skill_js_ellipse {
+    position: absolute;
+    height: 152PX;
+    width: 152PX;
+    left: 403PX;
+    top: 63PX;
+    background: svg-load(
+        "jsEllipse.svg",
+        fill=rgba(255, 255, 255, 0.3),
+        width=152PX,
+        height=152PX
+    );
+}
+
 .skill_jq_vue {
     position: absolute;
-    width: 138PX;
-    height: 138PX;
+    width: 139PX;
+    height: 139PX;
     left: 612PX;
     top: 69PX;
 
@@ -141,4 +182,16 @@
     color: rgba(16, 0, 34, 0.5);
 }
 
-
+.skill_jq_vue_ellipse {
+    position: absolute;
+    height: 77PX;
+    width: 77PX;
+    left: 606PX;
+    top: 62PX;
+    background: svg-load(
+        "jqVueEllipse.svg",
+        fill=rgba(255, 255, 255, 0.3),
+        width=77PX,
+        height=77PX
+    );
+}
