@@ -8,7 +8,7 @@
 
 ##  Чтобы развернуть проект необходимо:
 ```sh
-$ git clone git@github.com:loftschool/vue-boilerplate.git
+$ git clone https://github.com/DevRomFromDom/Portfolio.git
 $ cd vue-boilerplate
 $ yarn
 ```
