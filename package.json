@@ -10,7 +10,7 @@
         "reg": "node reg-util.js",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
-        "deploy":"gh-pages -d build",
+        "deploy":"gh-pages -d dist",
         "predeploy":"yarn build"
     },
     "keywords": [],
