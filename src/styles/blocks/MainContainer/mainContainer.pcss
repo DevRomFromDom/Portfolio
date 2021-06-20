@@ -172,12 +172,17 @@
 
     display: flex;
     align-items: center;
-    text-align: center;
+    text-align: flex-start;
+    flex-direction: column;
 
     /* white */
 
     color: #ffffff;
 }
+.name_firstname{
+    padding: 0 17PX 0 0;
+}
+
 .site_meaning {
     position: absolute;
     width: 165PX;
@@ -208,6 +213,7 @@
     height: 14.12PX;
     left: 695PX;
     top: 883PX;
+    cursor:pointer;
 }
 .text {
     font-family: Open Sans;
@@ -221,13 +227,13 @@
     color: #ffffff;
 }
 .scroll_arrows {
-    height: 13.41PX;
-    width: 13.12PX;
-    border-radius: 0PX;
+    align-self: flex-end;
+    width: 12.7PX;
+    height: 12.5PX;
     background: svg-load(
         "scroll.svg",
         fill= "#FFFFFF",
-        width= 13.12PX,
-        height= 13.41PX
+        height= 13.12PX,
+        width= 13.41PX
     );
 }
