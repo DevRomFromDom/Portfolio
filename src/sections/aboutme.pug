@@ -1,0 +1,25 @@
+section.about
+  .about__col 
+    .about__user 
+      .user__avatar
+        +image('content/user.jpg',"about__user-avatar")  
+      .user__aboutinfo
+        - 
+          var userData = [
+            ["Проживаю:","Кировск"], 
+            ["Возраст:","26 лет"],
+            ["Родился:","20 июля 1994"]
+          ]
+        table.user__aboutinfo_table
+          each item in userData
+            tr 
+              td.aboutuser__key #{item[0]}
+              td.aboutuser__value #{item[1]}
+    .about__user-text 
+      .about__main-text
+        .about__desc Привет, меня зовут
+        .about__title Роман Каменских
+        .about__text-info Я занимаюсь разработкой современных сайтов и приложений.#[br] Мне нравится делать интересные и современные проекты.
+      .about__ps 
+        .about__ps-star *
+        .about__ps-text Этот сайт я сделал в рамках обучения в Школе онлайн образования#[br] LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите,#[br] как тут всё классно и красиво!

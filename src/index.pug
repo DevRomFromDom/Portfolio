@@ -1,19 +1,12 @@
-include ./mixins.pug
+extends ./main.layout.pug
 
-<!DOCTYPE html>
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Portfolio | main page
-  body
-    .page
-      include ./sections/mainContainer.pug
-      include ./sections/aboutMeContainer.pug
-      include ./sections/skillsContainer.pug
-      include ./sections/projectsContainer.pug
-      include ./sections/reviewsContainer.pug
-      include ./sections/footerContainer.pug
-      +image('content/rockfest.png','background_image')
-      
+block content
+   .welcome-section
+      include ./sections/hero.pug
+      include ./sections/aboutme.pug
+   .middle-section
+      include ./sections/skills.pug
+      include ./sections/projects.pug
+      //- include ./sections/reviewsContainer.pug
+//-           //- include ./sections/footerContainer.pug
+//-         //-   +image('content/rockfest.png','background_image')

@@ -1,6 +1,6 @@
-mixin icon(name, className)
-  - var icon = require(`images/icons/${name}.svg`).default;
-  svg(class=className viewBox=icon.viewBox preserveAspectRatio="none")
+mixin icon(item, className)
+  - var icon = require(`images/icons/${item.name}.svg`).default;
+  svg(class=className viewBox=icon.viewBox width=item.width height=item.height preserveAspectRatio="none")
     use(xlink:href=`sprite.svg#${icon.id.replace('-usage', '')}`)
 
 mixin image(path, className)

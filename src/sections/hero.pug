@@ -1,0 +1,31 @@
+section.fullscreen-section.hero 
+  container.hero__container
+    header.header
+      .header__logo 
+        a.logo(href="#") РК
+      .header__menu
+        nav.menu  
+          ul.menu__list 
+            - var menuLinks = ["Обо мне","Навыки","Работы","Отзывы"]
+            each item in menuLinks 
+              li.menu__item 
+                a(href="#").menu__link #{item}
+      .header__buttons 
+        ul.socials 
+          - var socials = [
+          - {name:"insta", width:"25",height:"25", href:"#"},
+          - {name:"vk", width:"32",height:"32", href:"#"},
+          - {name:"github", width:"25",height:"25", href:"#"},
+          - {name:"envelope", width:"29",height:"29", href:"#"},
+          - ]
+          each item in socials 
+            li.socials__item 
+              a(href=item.href).socials__link
+                +icon(item, 'socials__icon')
+    .hero__content 
+      .userinfo 
+        .userinfo__title Личный сайт #[span.userinfo_occ веб разработчика] 
+        .userinfo__name Роман #[br]Каменских
+    .hero__downbutton 
+      .scroll-down 
+        a(href="#").scroll-down__btn Скролл
