@@ -1,0 +1,33 @@
+section.footer 
+  .footer__container 
+    .footer__content-row 
+      .footer-user__info
+        .footer-year © 2020
+        .footer-info__text
+          .footer-user_name Роман #[br] Каменских
+          .footer-info-text Личный сайт #[br] веб-разработчика
+      .footer-nav__container
+        nav.footer__menu 
+          ul.footer-menu__list 
+            - var menuLinks = ["Обо мне","Навыки","Работы","Отзывы"]
+            each item in menuLinks 
+              li.menu__item 
+                a(href="#").menu__link #{item}
+        .footer__nav-aim Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+        .footer__buttons 
+          ul.footer__socials 
+            - var socials = [
+            - {name:"insta", width:"21",height:"21", href:"#"},
+            - {name:"vk", width:"28",height:"28", href:"#"},
+            - {name:"github", width:"24",height:"20.31", href:"#"},
+            - {name:"envelope", width:"22",height:"22", href:"#"},
+            - ]
+            each item in socials 
+              li.footer__socials-item 
+                a(href=item.href).footer__socials-link
+                  +icon(item, 'footer-socials__icon')
+      .footer-quote__col 
+        .footer__quote-text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+        .footer_quote-author Martin Golding
+
+

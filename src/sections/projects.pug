@@ -13,8 +13,10 @@ section.projects
           nav.slider__nav
             .nav-button
               .nav-arrow.next
+                +icon({"name":'arrowNext'},"slider-next")
             .nav-button
               .nav-arrow.passed
+                +icon({"name":'arrowPassed'},"slider-passed")
       .projects__content-info
         ul.projects-info__tags
           - var projTags = ["HTML", "CSS", "Javascript"];

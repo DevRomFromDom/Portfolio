@@ -1,19 +1,27 @@
 .about {
+    position: relative;
+    padding-top: 36px;
+    left:12px;
     max-width: 1006px;
     margin: 0 auto;
 }
 .about__col {
+    justify-content: space-between;
     display: flex;
     flex-direction: row;
-    max-height: 380px;
+    height: 380px;
 }
 .about__user {
+    height: 100%;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 28.43%;
 }
 .user__avatar {
+    position: relative;
+    margin-left: 74px;
     max-width: 200px;
 }
 .about__user-avatar {
@@ -26,10 +34,37 @@
     font-size: 16px;
     color: rgba(255, 255, 255, 0.5);
 }
+.user__aboutinfo{
+    display: flex;
+    justify-content: space-between;
+    width: 286px;
+    height: 102px;
+}
+.user__aboutinfo_table{
+    width: 100%;
+    
+}
+.table__about-info {
+    width: 100%;
+    font-weight: 600;
+    td{ 
+        padding-bottom: 15px;
+        &:last-child{
+            margin-left: 75px;
+        }
+    }
+    tr:last-child td{
+        padding-bottom: 0;
+    }
+}
 .about__main-text {
+    margin-top: 1.4%;
     margin-left: 8.44%;
+    margin-bottom: 12.5%;
 }
 .aboutuser__value {
+    width: auto;
+    display: flex;
     font-family: Open Sans;
     font-weight: 600;
     font-size: 16px;
@@ -39,9 +74,11 @@
 .about__user-text {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 62.42%;
     max-width: 628px;
+}
+.about__desc{
+    margin-bottom: 3.8%;
 }
 .about__title {
     font-family: Open Sans;
@@ -50,6 +87,8 @@
     font-size: 36px;
     line-height: 49px;
     color: #ffffff;
+    margin-bottom: 5%;
+
 }
 .about__text-info {
     font-family: Open Sans;
@@ -60,6 +99,7 @@
     display: flex;
     align-items: center;
     color: rgba(255, 255, 255, 0.5);
+    
 }
 .about__ps {
     display: flex;

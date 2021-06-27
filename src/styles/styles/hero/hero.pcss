@@ -1,9 +1,11 @@
 .maincontent{
+    position: relative;
     max-width: 1800px;
     margin: 0 auto;
     
 }
 .welcome-section {
+    position: relative;
     min-height: 1788px;
     background: url("~images/content/rockfest.png") center top / cover no-repeat;
 }
@@ -28,6 +30,7 @@
 }
 .menu {
     margin-left: 2%;
+    margin-top: -4px;
 }
 .menu__list {
     display: flex;
@@ -38,7 +41,12 @@
 .menu__item {
     white-space: nowrap;
     margin-right: 14%;
+    &:nth-child(3){
+        padding-left: 1px;
+    }
+    
     &:last-child {
+        padding-left: 2px;
         margin-right: 0;
     }
 }
@@ -62,9 +70,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 2px;
 }
 .socials__item {
     margin-right: 40px;
+    &:first-child{
+        margin-left: 2px;
+    }
     &:last-child{
         margin-right: 0;
     }
@@ -80,7 +92,7 @@
     padding: 0 24%;
 }
 .userinfo{
-    margin-top: 4%;
+    margin-top: 11%;
     margin-right: 20%;
     display: flex;
     text-align: center;
@@ -93,7 +105,7 @@
     font-style: normal;
     font-weight: 600;
     padding-top: 8px;
-    margin-right: 56px;
+    padding-right: 0px;
     width: auto;
 
 }
@@ -104,7 +116,7 @@
     font-size: 72px;
     color:#fff;
     font-weight: 800;
-    line-height: 0.8;
+    line-height: 0.85;
 }
 
 .scroll-down{
