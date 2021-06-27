@@ -1,13 +1,22 @@
-.skills {
-    position: relative;
-    margin-top: 7.5%;
-    width: 50.3%;
-    max-height: 709.5px;
+.middle__section-skills {
+    width: 100%;
+    display: grid;
     height: 100vh;
-    margin-left: 36.88%;
+    grid-template-columns: calc(633px- ((1800px-100vw) / 1.802)) minmax(
+            auto,
+            max-content
+        );
+}
+
+.skills {
+    padding-top: 15%;
+    max-height: 780px;
+    max-width: 903px;
+    height: 100vh;
+    padding-left: 3.35%;
 }
 .skills__text-container {
-    width: 66.33%;
+    width: 67.55%;
 }
 .skills__text-title {
     font-family: Open Sans;
@@ -22,6 +31,7 @@
     margin-bottom: 53px;
 }
 .skills__text-content {
+    width: 100%;
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;
@@ -32,6 +42,10 @@
     color: rgba(16, 0, 34, 0.5);
     margin-bottom: 79px;
 }
+.skills__widget {
+    width: 83.46%;
+    margin-left: 16.39%;
+}
 
 .skills__container {
     display: flex;
@@ -40,9 +54,9 @@
 }
 .skill__category {
     position: relative;
-    width: 102.4%;
-    margin-bottom: 3.2%;
-    left: -0.2%;
+    width: 100%;
+    margin-bottom: 3.31%;
+    left: -2.27%;
 }
 .category-title {
     font-family: Open Sans;
@@ -56,9 +70,9 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    width: 102.5%;
-    margin-bottom: 5%;
-    left: -1.1%;
+    width: 105.7%;
+    margin-bottom: 4.9%;
+    left: -3.27%;
 }
 
 .skill__item {
@@ -78,10 +92,7 @@
         stroke-dashoffset: 100;
     }
 }
-.skills__widget {
-    width: 82.78%;
-    margin-left: 14%;
-}
+
 .skill-title {
     position: absolute;
     left: 50%;
@@ -101,8 +112,21 @@
 
     color: rgba(16, 0, 34, 0.5);
 }
+.guitar__section {
+    flex-grow: 0;
+    position: relative;
+    height: 100vh;
+    max-height: 760px;
+}
 .guitar__image {
+    position: relative;
+    height: 1378px;
+    width: 633px;
+}
+
+.image-guitar {
     position: absolute;
-    top: -86%;
-    left: -73.3%;
+    top: calc(-476px + ((1800px-100vw) * 0.571));
+    width: 36vw;
+    left: calc((-1800px+100vw) / 4.4);
 }
