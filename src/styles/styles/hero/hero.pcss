@@ -1,58 +1,159 @@
 .maincontent{
     position: relative;
-    max-width: 1800px;
+    max-width: 1800PX;
     margin: 0 auto;
     
 }
 .welcome-section {
     position: relative;
-    min-height: 1788px;
-    background: url("~images/content/rockfest.png") center top / cover no-repeat;
+    height: 1788PX;
+    background: url("~images/content/rockfest.jpg") center top / cover no-repeat;
+    @include tablets{
+        height: 1407PX;
+    }
+    @include phones{
+        height: 1519PX;
+    }
 }
 .hero {
-    padding-top: 58px;
+    padding-top: 58PX;
     position: relative;
     padding-left: 8.77%;
     padding-right: 9.27%;
+    max-height: 955.12PX;
+    @include desktop{
+        padding-top: 54PX;
+        padding-left: 4.916%;
+        padding-right: 5.583%;
+    }
+    @include tablets{
+        padding-top: 51PX;
+        padding-left: 5.078%;
+        padding-right: 5.13%;
+    }
+    @include phones {
+        padding-top: 59PX;
+        padding-left: 9%;
+        padding-right: 9.5%;
+        max-height: 297PX;
+    }
+    
 }
 .hero__container {
     display: flex;
     flex-direction: column;
     height: 100%;
     margin: 0 auto;
-    max-width: 1475px;
+    max-width: 1475PX;
+    max-height: 897.12PX;
+    @include desktop{
+        max-height: 678.12PX;
+    }
+    @include tablets {
+        max-width: 689.6PX;
+        max-height: 338PX;
+    }
+    @include phones{
+        width: 100%;
+        max-width: 260.6PX;
+        max-height: 297PX;
+        justify-content: space-between;
+    }
 }
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     width: 100%;
 }
-.header__menu {
-    position: relative;
-    left: 4px;
-    width: 29%;
+.header__logo{
+    @include tablets{
+        padding-right: calc(33%-((768PX - 100vw)*1));
+    }
+    @include phones{
+        height: 28PX; 
+    }
 }
-.menu {
-    margin-left: 2%;
-    margin-top: -4px;
+.logo{
+    font-weight: 800;
+    font-size: 36PX;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    line-height: 49PX;
+    @include tablets {
+        flex-grow: 3;
+    }
+    @include phones{
+        height: 100%;
+    }
+}
+
+.header__menu {
+    display: flex;
+    position: relative;
+    margin-top: 12PX;
+    width: 428PX;
+    left:0.7%;
+    z-index: 5;
+    @include desktop{
+        margin-top: 13PX;
+        width: 46.94%;
+        max-width: 429PX;
+        margin-left: 6PX;
+    }
+    @include tablets{
+        order:2;
+        width: 29.6PX;
+        height: 24.67PX;
+        left: 0;
+        margin-top:15.67PX;
+        cursor: pointer;
+        
+    }
+    &:after {
+        @include tablets{
+            content: "";
+            display: block;
+            width: 29.6PX;
+            height: 24.67PX;
+            background: svg-load('menu.svg', fill=white, width=100%, height=100%) center center no-repeat;
+        }
+      }
+    @include phones{
+      margin-top: 3PX;
+    }
+}
+.menu{
+    width: 100%;
+    @include tablets{
+        display: none;
+    }
 }
 .menu__list {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include tablets{
+        display: none;
+        top:1px;
+    }
     
 }
 .menu__item {
+    position: relative;
     white-space: nowrap;
-    margin-right: 14%;
-    &:nth-child(3){
-        padding-left: 1px;
-    }
-    
+    margin-right: 14.02%;
     &:last-child {
-        padding-left: 2px;
+    
         margin-right: 0;
+        @include tablets{
+            left: -24PX;
+        }
+        @include phones{
+            left: 0;
+        }
     }
 }
 .menu__link {
@@ -60,34 +161,61 @@
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 16PX;
+    line-height: 22PX;
     color: #ffffff;
     display: flex;
     align-items: center;
+    @include tablets{
+        font-size: 14PX;
+        line-height: 19PX;
+    }
+    
 }
 .header__buttons {
+    
     margin-right: 0.5%;
-    max-width: 228px;
-    width: 15.45%;
+    width: 228PX;
+    @include desktop{
+        margin-right: 0.8%;
+    }
+    @include phones{
+        display: none;
+    }
 }
 .socials {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 2px;
+    margin-top: 6PX;
+    @include desktop{
+        margin-top: 7PX;
+    }
+    @include tablets{
+        margin-top: 11PX;
+    }
 }
 .socials__item {
-    margin-right: 40px;
+    position: relative;
+    margin-right: 40PX;
     &:first-child{
-        margin-left: 6px;
+        margin-left: 8PX;
+    }
+    &:nth-child(3){
+        left: -1PX;
     }
     &:last-child{
+        left: -2PX;
         margin-right: 0;
     }
+    
 }
 .socials__icon {
     fill: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    &:hover{
+        fill:rgb(84, 67, 148);
+    }
 }
 .hero__content{
     flex: 0.8;
@@ -95,56 +223,110 @@
     justify-content: center;
     align-items: center;
     padding: 0 24%;
+    height: 269PX;
+    @include phones{
+      align-items: flex-end;
+    }
 }
 .userinfo{
-    margin-top: 11%;
+    margin-top: 28%;
     margin-right: 20%;
     display: flex;
     text-align: center;
+    @include tablets{
+        display: flex;
+        flex-direction: column;
+        margin-top: 28%;
+        line-height: 1.9;
+        margin-right: 0%;
+       
+    }
+    @include phones{
+      margin-top: 0;
+    }
 }
 .userinfo__title{
     text-align: right;
-    font-size: 18px;
+    font-size: 18PX;
     color:rgba(255, 255, 255, 0.5);
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;
-    padding-top: 8px;
-    padding-right: 0px;
+    padding-top: 8PX;
+    padding-right: 0PX;
     width: auto;
+    @include tablets{
+        display: flex;
+        flex-direction: column;
+        font-size: 16PX;
+        align-items: center;
+        height: 60PX;
+        margin-bottom: 12%;
+    }
+    @include phones{ 
+        justify-content: flex-end;   
+        font-size: 14PX;
+        line-height: 19PX;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 2.7%;
+    }
 
 }
 .userinfo_occ{
     white-space: nowrap;
 }
 .userinfo__name{
-    font-size: 72px;
+    font-size: 72PX;
     color:#fff;
     font-weight: 800;
     line-height: 0.85;
+    @include tablets{
+        font-size: 48PX;
+        line-height: 48PX;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    @include phones{
+        font-size: 36PX;
+        line-height: 48PX;
+    }
 }
+
 
 .scroll-down{
     color:white;
-    font-style: 16px;
+    font-style: 16PX;
     font-weight: 600;
-    line-height: 25px;
+    line-height: 25PX;
+    
 
 }
 .hero__downbutton {
-    position: absolute;
-    bottom: 12%;
-    left: 0;
+    position: relative;
+    bottom: -19.1%;
+    left: 5PX;
     right: 0;
     display: flex;
     justify-content: center;
+    @include desktop{
+        bottom: -18.9%;
+    }
+    @include tablets{
+        display: none;
+    }
+    cursor: pointer;
+    &:hover{
+        color:rgb(84, 67, 148);
+    }
     
 }
 .scroll-down__btn {
     display: inline-block;
     display: flex;
     align-items: center;
-    font-size: 18px;
+    font-size: 18PX;
     font-weight: 600;
     text-decoration: none;
   
@@ -152,9 +334,10 @@
       content: "";
       display: block;
       background: svg-load('scroll.svg', fill=white, width=100%, height=100%) center center no-repeat;
-      width: 13.41px;
-      height: 13.12px;
-      margin-left: 15px;
+      width: 13.41PX;
+      height: 13.12PX;
+      margin-left: 15PX;
+      
     }
-  
 }
+

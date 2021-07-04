@@ -1,96 +1,257 @@
 .middle__section-skills {
     width: 100%;
-    display: grid;
+    display: flex;
     height: 100vh;
-    grid-template-columns: calc(633px- ((1800px-100vw) / 1.802)) minmax(
-            auto,
-            max-content
-        );
+    
 }
 
 .skills {
-    padding-top: 15%;
-    max-height: 780px;
-    max-width: 903px;
+    margin-top: 7.5%;
+    max-height: 780PX;
+    max-width: 903PX;
     height: 100vh;
-    padding-left: 3.35%;
+    margin-left: 36.8%;
+    &:before {
+        content: "";
+        position: absolute;
+        background: url("~images/content/guitar.png") left bottom / contain
+            no-repeat;
+        display: block;
+        top: -27.2%;
+        left: 0%;
+        height: 79%;
+        width: 36vw;
+        max-width: 633PX;
+    }
+    @include desktop {
+        &::before {
+            top: -23.25%;
+            left: -9.25%;
+        }
+        margin-top: 5.9%;
+        margin-left: 28.01%;
+    }
+    @include tablets {
+        margin-right: 5.07%;
+        margin-left: 5.34%;
+        max-width: 688PX;
+        max-height: 1043PX;
+        margin-top: 13.5%;
+        &:before{
+            background: url("~images/content/guitar-2.png") left bottom / contain
+            no-repeat;
+            bottom: 0;
+            left: 50%;
+            top:52.1%;
+            transform: translate(-50%,-50%);
+            background-position: center center;
+            max-height: 361PX;
+            max-width: 768PX;
+            height: 52.47%;
+            width: 100vw;
+        }
+    }
+    @include phones{
+        width: 100%;
+        margin-left: 0;
+        max-height: 1212PX;
+        max-width: 350PX;
+        margin-bottom: 33%;
+        margin: 0 auto;
+        margin-top:21.7%;
+        
+        &::before{
+            background: url("~images/content/guitar-2.png") left bottom / contain
+            no-repeat;
+            bottom: 0;
+            left: 68%;
+            top:55.4%;
+            transform: translate(-50%,-50%);
+            background-position: center center;
+            max-height: 201PX;
+            height: 52.47%;
+            width: 120%;
+        }
+    }
 }
 .skills__text-container {
-    width: 67.55%;
+    width: 68%;
+    @include tablets{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    @include phones{
+        width: 85.3%;
+        max-width: 273PX;
+        margin-left: 9%;
+    }   
 }
 .skills__text-title {
     font-family: Open Sans;
     font-style: normal;
     font-weight: bold;
-    font-size: 30px;
-    line-height: 41px;
+    font-size: 30PX;
+    line-height: 41PX;
     display: flex;
     align-items: center;
 
     color: #222427;
-    margin-bottom: 53px;
+    margin-bottom: 52PX;
+    @include desktop {
+        margin-bottom: 39PX;
+    }
+    @include tablets{
+        width: 39.09%;
+        text-align: center;
+        padding-right: 1.1%;
+        margin-bottom: 30PX;
+
+    }
+    @include phones{
+        width: 100%;
+        font-size: 24PX;
+        line-height: 36PX;
+        text-align: start;
+        margin-bottom: 28PX;
+    }
 }
 .skills__text-content {
     width: 100%;
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 30px;
+    font-size: 16PX;
+    line-height: 30PX;
     display: flex;
     align-items: center;
     color: rgba(16, 0, 34, 0.5);
-    margin-bottom: 79px;
+    margin-bottom: 80PX;
+    @include desktop {
+        margin-bottom: 15.7%;
+        margin-left: 0.1%;
+       
+    }
+    @include tablets{
+        width: 68.6%;
+        font-size: 14PX;
+        line-height: 24PX;
+        text-align: center;
+        margin-bottom: 11.8%;
+
+    }
+    @include phones{
+        width: 100%;
+        text-align: left;
+        margin-bottom: 25%;
+    }
+    
 }
 .skills__widget {
-    width: 83.46%;
-    margin-left: 16.39%;
+    width: 85.2%;
+    margin-left: 16.1%;
+    @include desktop{
+        margin-left: 11.7%;
+        width: 85.2%;
+    }
+    @include tablets {
+        width: 99%;
+        margin-left: 0;
+    }
+    @include phones{
+        width: 100%;   
+    }
 }
 
 .skills__container {
     display: flex;
     flex-direction: column;
     width: 100%;
+    @include phones{
+        width: 100%;
+    }   
 }
 .skill__category {
     position: relative;
     width: 100%;
-    margin-bottom: 3.31%;
-    left: -2.27%;
+    margin-bottom: 24PX;
+    left: -2.5%;
+    @include desktop{
+        margin-bottom: 3.4%;
+    }
+    @include tablets{
+        display: none;
+        margin-bottom: 0;
+    }
+    @include phones{
+        display: block;
+        left: 0;
+        margin-bottom: 7%;
+    }
 }
 .category-title {
     font-family: Open Sans;
     font-style: normal;
     font-weight: bold;
-    font-size: 24px;
-    line-height: 33px;
+    font-size: 24PX;
+    line-height: 33PX;
     color: #222427;
+    @include phones{
+     text-align: center;   
+     font-size: 18PX;
+     line-height: 25PX;
+    }
+
 }
 .skills__row {
     position: relative;
     display: flex;
     justify-content: space-between;
-    width: 105.7%;
-    margin-bottom: 4.9%;
+    width: 100%;
+    margin-bottom: 36PX;
     left: -3.27%;
+    @include desktop{
+        margin-bottom: 5%;
+        left: -3%;
+    }
+    @include tablets{
+        left:0;
+        margin-bottom: 9%;
+    }
+    @include phones{
+        align-self: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        margin-bottom: 16%;
+        width: 89%;
+    }
 }
 
 .skill__item {
     position: relative;
-    width: 166px;
-    height: 166px;
+    width: 166PX;
+    max-height: 166PX;
+    @include phones{
+        max-height: 135PX;
+        width: 135PX;
+    }
 }
 .skill__circle {
     fill: transparent;
     &_under {
         stroke: #eaeaea;
-        stroke-width: 5px;
+        stroke-width: 5PX;
     }
     &_above {
-        stroke-width: 12px;
+        stroke-width: 12PX;
         stroke-dasharray: 251;
         stroke-dashoffset: 100;
     }
+
 }
 
 .skill-title {
@@ -98,11 +259,8 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-
-    /* Desktop/Body 2 Bold */
-
     font-family: Open Sans;
-    font-style: normal;
+    font-style: 700;
     font-weight: bold;
     font-size: 18px;
     line-height: 25px;
@@ -111,22 +269,4 @@
     text-align: center;
 
     color: rgba(16, 0, 34, 0.5);
-}
-.guitar__section {
-    flex-grow: 0;
-    position: relative;
-    height: 100vh;
-    max-height: 760px;
-}
-.guitar__image {
-    position: relative;
-    height: 1378px;
-    width: 633px;
-}
-
-.image-guitar {
-    position: absolute;
-    top: calc(-476px + ((1800px-100vw) * 0.571));
-    width: 36vw;
-    left: calc((-1800px+100vw) / 4.4);
 }

@@ -1,20 +1,48 @@
 .reviews-section {
+    margin-top: 209PX;
     position: relative;
-    height: calc(930px-((1800px-100vw)*0.28));
-    max-height: 930px;
+    height: calc(930PX-((1800PX-100vw)*0.28));
+    max-height: 930PX;
     width: 100%;
     background: url("~images/content/guitarist.png") top right 100% / cover
         no-repeat;
     padding-left: 8.83%;
-    padding-top: 143px;
+    padding-top: 140PX;
+    @include desktop{
+        max-height: 724PX;
+        margin-top: 9.5%;
+        padding-top: 12%;
+        padding-left: 5%;
+    }
+    @include tablets {
+        margin-top: 15%;
+        padding-top: 15.6%;
+        max-height: 599PX;
+    }
+    @include phones{
+        width: 100%;
+        margin: 0;
+        padding-left: 0;
+        margin-top: 32%;
+        padding-top: 22%;
+
+    }
 }
 .reviews__container {
     position: absolute;
-    max-width: 933px;
-    max-height: 358px;
+    max-width: 933PX;
+    max-height: 358PX;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @include tablets{
+        max-width: 768PX;
+    }
+    @include phones{
+        width: 100%;
+        margin: 0;
+
+    }
 
 }
 .reviews__header {
@@ -23,43 +51,75 @@
     justify-content: space-between;
     align-items: center;
     width: 72.38%;
-    max-width: 638px;
+    max-width: 638PX;
+    @include tablets{
+        width: 71%;
+    }
+    @include phones{
+        width: 100%;
+        margin: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 18%;
+    }
 }
 .reviews-title {
     font-family: Open Sans;
     font-style: normal;
     font-weight: bold;
-    font-size: 36px;
-    line-height: 49px;
+    font-size: 36PX;
+    line-height: 49PX;
     display: flex;
     align-items: center;
     color: #ffffff;
+    @include tablets{
+        font-size: 30PX;
+        line-height: 41PX;
+    }
+    @include phones{
+        margin: 0;
+        text-align: center;
+        font-size: 24PX;
+        line-height: 33PX;
+        margin-bottom: 5.2%;
+
+    }
 }
 .reviews__nav {
     position: relative;
-    top:-2px;
+    top:-2PX;
     display: flex;
     justify-content: space-between;
-    height: 53px;
-    width: 134px;
+    height: 53PX;
+    width: 134PX;
+    @include tablets{
+        top:2PX;
+    }
 }
 .review__nav-item {
     position: relative;
-    width: 53px;
-    height: 53px;
-    border-radius: 100px;
-    border: 2px solid white;
-    background:transparent
+    width: 53PX;
+    height: 53PX;
+    border-radius: 100PX;
+    border: 2PX solid white;
+    background: transparent;
+    &:hover {
+        border: 3PX solid rgb(84, 67, 148);
+        .arrow-revive{
+            fill:rgb(84, 67, 148);
+        }
+    }
 }
 .review-arrow {
     position: absolute;
-    left: 19px;
-    top: 15px;
-    width: 10.12px;
-    height: 17.41px;
+    left: 19PX;
+    top: 15PX;
+    width: 10.12PX;
+    height: 17.41PX;
 }
 .next-review {
-    margin-left: 4px;
+    margin-left: 4PX;
 }
 .review-passed {
     fill: white;
@@ -68,9 +128,20 @@
     fill: white;
 }
 .reviews__content {
-    margin-top: 76px;
+    margin-top: 77PX;
     display: flex;
-    width: 947px;
+    width: 947PX;
+    @include tablets {
+        margin-top: 7%;
+        width: 100%;
+    }
+    @include phones{
+        width: 100%;
+        margin: 0;
+        margin-left: 4.5%;
+        justify-content: center;
+       
+    }
     
 }
 
@@ -78,15 +149,30 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    width: 947px;
+    width: 947PX;
+    @include tablets{
+        max-width: 686PX;
+
+    }
+    @include phones{
+        width: 90%;
+        margin: 0;
+        align-self: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        max-height: 211PX;
+        overflow: hidden;
+
+    }
 }
 .review__block-container {
     position: relative;
-    width: 444px;
-    height: 226px;
+    width: 444PX;
+    height: 226PX;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: flex-end;
     &::before {
         content: "";
@@ -94,48 +180,117 @@
         height:57.39PX;
         background: svg-load("quote.svg", fill=white, width=76.9PX,height=57.39PX) no-repeat;
         position: absolute;
-        top: 10px;
+        top: 10PX;
         left: 0;
+    }
+    @include desktop {
+        &::before{
+            top:19PX;
+        }
+    }
+    @include tablets {
+        max-width: 332PX;
+        &::before{
+            top:10PX;
+            width: 37PX;
+            height: 27PX;
+            background: svg-load("quote.svg", fill=white, width=37PX,height=27PX)no-repeat;
+        }
+
+    }
+    @include phones{
+        &::before{display: none}
+        max-height: 211PX;
+        max-width: 260PX;
+    }
+}
+.review-content{
+    @include tablets {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+        height: 100%;
+    }
+    @include phones{
+        align-items: flex-start;
+        width: 100%;
     }
 }
 .review-text {
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 30px;
+    font-size: 16PX;
+    line-height: 30PX;
     color: rgba(255, 255, 255, 0.5);
-    width: 346px;
-    height: 120px;
+    width: 346PX;
+    height: 120PX;
+    @include tablets{
+        font-size: 14PX;
+        line-height: 24PX;
+        width: 87.3%;
+        
+    }
+    @include phones{
+        margin-bottom: 6.5%;
+        width: 100%;
+    }
 }
 .review__author {
     display: flex;
-    margin-top: 31px;
+    margin-top: 31PX;
+    @include tablets {
+        margin-top: 2%;
+        padding-right: 7%;
+    }
+    @include phones{
+       height: 75PX;
+       margin-top: 0;
+       padding: 0;
+       width: 100%;
+    }
 }
 .review-author__info {
     display: flex;
     flex-direction: column;
-    margin-top: 11px;
-    margin-left: 31px;
+    margin-top: 11PX;
+    padding-left: 30PX;
+    @include tablets {padding-left: 22PX;}
+    @include phones{
+        margin: 0;padding: 0;
+        padding-left: 4%;
+        padding-top: 5.7%;
+    }
+
 }
 .review-author-name {
     font-family: Open Sans;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
+    font-size: 18PX;
+    line-height: 25PX;
     display: flex;
     align-items: center;
     color: #ffffff;
-    margin-bottom: 12px;
+    margin-bottom: 13PX;
+    @include tablets {
+        font-size: 16PX;
+        line-height: 22PX;
+    }
+    @include phones{
+        margin-bottom: 7PX;
+    }
 }
 .review-author-job {
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 16PX;
+    line-height: 22PX;
     display: flex;
     align-items: center;
     color: rgba(255, 255, 255, 0.25);
+    line-height: 19PX;
+    font-size: 14PX;
 }

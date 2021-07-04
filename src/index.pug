@@ -1,11 +1,13 @@
 extends ./main.layout.pug
 
 block content
+   
    .welcome-section
-      include ./sections/hero.pug
-      include ./sections/aboutme.pug
+      include ./app/hero/hero.pug
+      include ./app/about/aboutme.pug
+      include ./app/hero/triangles.pug
    .middle-section
-      include ./sections/skills.pug
-      include ./sections/projects.pug
-   include ./sections/reviews.pug
-   include ./sections/footer.pug
+      include ./app/skills/skills.pug
+      include ./app/projects/projects.pug
+   include ./app//reviews/reviews.pug
+   include ./app/footer/footer.pug

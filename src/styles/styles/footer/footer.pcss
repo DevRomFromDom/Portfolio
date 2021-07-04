@@ -1,135 +1,241 @@
 .footer {
     position: relative;
     width: 100%;
-    height: 375px;
+    height: 375PX;
     background: #100022;
+    @include desktop{
+        height: 373PX;
+    }
+    @include tablets{
+        height: auto;
+        max-height: 484PX;
+        padding-bottom: 15%;
+    }
+    @include phones{
+        height: 743PX;
+        max-height: 743PX;
+        padding-bottom: 0;
+    }
 }
 .footer__container {
     position: relative;
-    top: 64px;
+    top: 61PX;
     left: 8.94%;
     width: 79.77%;
-    max-width: 1436px;
+    max-width: 1436PX;
+    @include desktop{
+        top: 65PX;
+        left:5%;
+        width: 91.66%;
+        max-width: 1100PX;
+    }
+    @include tablets {
+        top: 0%;
+        max-width: 88.5%;
+        padding-top: 6.1%;
+    }
+    @include phones{
+      left: 0;
+      margin-left: 9%;
+      width: 85%;
+      height: 100%;
+      padding-top: 14.9%;
+    }
 }
 .footer__content-row {
     display: flex;
     justify-content: space-between;
+    @include tablets {
+        display: grid;
+        grid-template-columns: 163PX 443PX;
+        grid-template-areas: 
+        "info nav"
+        ". quote";
+    }
+    @include phones{
+      display: flex;
+      flex-direction: column;
+      height: 90%;
+    }
 }
 .footer-user__info {
+    position: relative;
     
     display: flex;
     justify-content: space-between;
-    max-height: 133px;
+    max-height: 133PX;
     align-items: flex-start;
-
+    @include desktop{
+        flex-direction: column
+    }
+    @include tablets {
+        grid-area: info;
+        top:0PX;
+    }
+    
 }
 .footer-year {
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;
-    font-size: 48px;
-    line-height: 65px;
+    font-size: 48PX;
+    line-height: 65PX;
     display: flex;
     align-items: center;
-
-    /* white 50% */
-
     color: rgba(255, 255, 255, 0.5);
 }
 .footer-info__text {
-    margin-left: 56px;
-    margin-top: 8px;
+    margin-left: 56PX;
+    margin-top: 8PX;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @include desktop{
+        margin-left: 0;
+        margin-top: 10PX;
+    }
+    @include tablets {
+       margin-top: 4%;
+    }
+    @include phones{
+      margin: 0;
+      height: 69PX;
+    }
 }
 .footer-user_name {
-    height: 60px;
+    height: 60PX;
     font-family: Open Sans;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
-    line-height: 30px;
-    /* or 167% */
-
+    font-size: 18PX;
+    line-height: 30PX;
     display: flex;
     align-items: center;
     text-transform: uppercase;
 
-    /* white */
-
     color: #ffffff;
-    margin-bottom: 16px;
+    margin-bottom: 16PX;
+    @include phones{
+     margin-bottom: 0; 
+    }
 }
 .footer-info-text {
-    /* Desktop/Body 1 Regular */
-
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 30px;
-    /* or 187% */
-
+    font-size: 16PX;
+    line-height: 30PX;
     display: flex;
     align-items: center;
-
-    /* white 50% */
-
     color: rgba(255, 255, 255, 0.5);
+    @include tablets {
+        font-size: 14PX;
+        line-height: 24PX;
+    }
 }
 .footer-nav__container {
+    position: relative;
     width: 29.875%;
-    max-width: 429px;
-    height: 227px;
+    max-width: 429PX;
+    height: 227PX;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 4.6%;
-    margin-top: 15px;
+    margin-left: 4.68%;
+    margin-top: 15PX;
+    @include desktop{
+        height: 213PX;
+        width: 40.5%;
+        left: calc(4.5%-((1200PX-100vw)/12));
+        margin-left: calc(4.68%-((1200PX-100vw)/12));
+    }
+    @include tablets {
+        grid-area: nav;
+        width: 90%;
+        left: 0;
+        margin-left: 0;
+        margin-top: 15PX;
+        height: 181PX;
+    }
+    @include phones{
+        top: -1%;
+      margin-top: 0%;
+      height: 40%;
+      width: 100%;
+    }
 }
 .footer__menu {
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 22px;
-    /* identical to box height */
-
+    font-size: 16PX;
+    line-height: 22PX;
     display: flex;
     align-items: center;
-
-    /* white */
-
     color: #ffffff;
+    @include desktop{
+        position: relative;
+        width: 429PX;
+    }
+    @include tablets{
+        width: 100%;
+        
+    }
+    @include phones{
+        max-width: 230PX;  
+        height: 75PX;
+
+    }
+    
 }
 
 .footer-menu__list {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    @include tablets{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    @include phones{
+      height: 100%;
+      display: grid;
+      grid-template-columns: 120PX 90PX;
+    }
 }
 .footer__nav-aim {
-    /* Desktop/Body 1 Regular */
-    max-width: 314px;
-
+    position: relative;
+    max-width: 314PX;
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 30px;
-    /* or 187% */
-
+    font-size: 16PX;
+    line-height: 30PX;
     display: flex;
     align-items: center;
-
-    /* white 50% */
-
     color: rgba(255, 255, 255, 0.5);
+    @include desktop{
+        top: 3.2%;
+    }
+    @include tablets {
+        font-size: 14PX;
+        line-height: 24PX;
+        width:100%;
+        max-width: 453PX;
+    }
+    @include phones{
+        width: 96%;
+        height: 70PX;
+        top: 2%;
+    }
 }
 .footer__buttons {
-    max-width: 259px;
-    height: 50px;
+    position: relative;
+    max-width: 259PX;
+    height: 50PX;
+    @include phones{
+        top:0.5%;
+    }
 }
 .footer__socials {
     display: flex;
@@ -137,12 +243,18 @@
 }
 .footer__socials-item {
     position: relative;
-    height: 50px;
-    width: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 100px;
+    height: 50PX;
+    width: 50PX;
+    border: 1PX solid rgba(255, 255, 255, 0.3);
+    border-radius: 100PX;
     cursor: pointer;
-}
+    &:hover{
+        border: 2px solid rgb(84, 67, 148);
+        .footer-socials__icon{fill: rgb(84, 67, 148);}
+        
+    }
+    
+} 
 .footer__socials-link {
     display: flex;
     justify-content: center;
@@ -156,41 +268,67 @@
     fill: rgba(255, 255, 255, 0.3);
 }
 .footer-quote__col {
-    height: 143px;
+    position: relative;
+    height: 143PX;
     width: 29.94%;
-    max-width: 430px;
+    max-width: 430PX;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 84px;
+    margin-top: 84PX;
+    @include desktop{
+        position: relative;
+        margin-top: calc(84PX-((1200PX-100vw)/30));
+        left: -2.7%;
+        width: calc(457PX-((1200PX-100vw)/1.63));
+
+    }
+    @include tablets {
+        grid-area: quote;
+        margin-top: 10.1%;
+        width: 95%;
+        max-width: 442PX;
+        left: 0.1%;
+        height: 83PX;
+    }
+    @include phones{
+        width: 100%;
+        margin-top: 0;
+        top: -3%; 
+        height: 145PX;
+    }
 }
 .footer__quote-text {
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 30px;
-    /* or 187% */
-
+    font-size: 16PX;
+    line-height: 30PX;
     display: flex;
     align-items: center;
-
-    /* white 50% */
-
     color: rgba(255, 255, 255, 0.5);
+    @include tablets {
+        font-size: 14PX;
+        line-height: 24PX;
+    }
 }
 .footer_quote-author {
+    position: relative;
     font-family: Open Sans;
     font-style: italic;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 22px;
-    /* identical to box height */
-
+    font-size: 16PX;
+    line-height: 22PX;
     display: flex;
     align-items: center;
-
-    /* white */
-
     color: #ffffff;
+    @include tablets{
+        top: 1px;
+        font-size: 14PX;
+        line-height: 19PX;
+        left: -0.5%;
+    }
+    @include phones{
+        top:0;
+    }
 }

@@ -1,73 +1,167 @@
 .projects__content-slider {
+    position: relative;
     display: flex;
     width: 69.98%;
-    max-height: 549px;
+    max-height: 549PX;
+    @include desktop{
+        margin-top: 0%;
+        width: 69.22%;
+        height: 68.25%;
+        max-width: 672.23PX;
+        max-height: 359PX;
+    }
+    @include tablets{
+        width: 95.52%;
+        max-width: 672.23PX;
+        height: 68%;
+        max-height: 359PX;
+        align-items: center;
+        
+    }
+    @include phones{
+        width: 100%;
+        margin: 0;
+        margin-bottom: 15%;
+
+    }
 }
 .slider__preview {
-    width: 100%;
     position: relative;
-    max-height: 975px;
-    
+    max-width: 975PX;
+    max-height: 549PX;
+    width: 94.8%;
+    @include desktop{
+        max-width: 637.57PX;
+        max-height: 359PX;
+    }
+    @include tablets {
+        max-width: 637.57PX;
+        max-height: 359PX;
+    }
+    @include phones{
+        width: 100%;
+        margin: 0;
+
+    }
+
 }
-.preview{
+.preview {
     width: 100%;
-    object-fit: cover;
-    
+    object-fit: top cover;
+    @include tablets{
+        max-height: 359PX;
+    }
 }
 .slider__miniature {
     position: absolute;
     display: flex;
-    height: 103px;
-    max-width: 717px;
+    height: 103PX;
+    max-width: 717PX;
     left: 27.09%;
     top: 71.038%;
+    @include desktop{
+        width: 73.6%;
+        max-width: 468.86PX;
+        height: 67.35PX;
+        left:26.5%;
+        top: 70%
+    }
+    @include phones{
+     display: none;
+
+    }
+
 }
-.miniature__item{
+.miniature__item {
     width: 100%;
     height: 100%;
     object-fit: fill;
+    cursor: pointer;
     &:before {
         content: attr(data-slide);
         position: absolute;
         line-height: 1;
         top: -175%;
-        font-size: 400px;
+        font-size: 400PX;
         right: -24.5%;
         font-weight: 800;
-        line-height: 48px;
+        line-height: 48PX;
         color: #e6e6e6;
-        z-index: -1;
+        z-index: -2;
+        @include desktop{
+            top: -120%;
+            font-size: 300PX;
+            right: -28%;
+        }
+        @include tablets{
+            top: -50%;
+            right: -25%;
+        }
+    }
+    &:hover{
+        border: 3PX solid #DC9322
     }
 }
 .nav__container {
+    position: absolute;
     display: flex;
     flex-direction: column;
-    width: 53px;
+    width: 53PX;
+    bottom: 0.3%;
+    right: 0;
     height: 100%;
-    justify-content: flex-end;
+    @include desktop {
+        width: 34.66PX;
+        height: auto;
+        bottom: 10%;
+    }
+    @include phones{
+        bottom: 0;
+        width: 55PX;
+        height: 109.66PX;
+    }
+
 }
 .slider__nav {
+    position: relative;
     display: flex;
     flex-direction: column;
-    width: 53px;
-    height: 105.75px;
-    margin-bottom: 100%;
+    width: 53PX;
+    height: 106PX;
+    top: 71%;
+    @include desktop {
+        width: 34.66PX;
+        height: 69.32PX;
+        top: 71%;
+    }
+    @include phones{
+        width: 55PX;
+        height: 109.66PX;
+        top: 0;
+    }
+   
 }
 .nav-button {
+    padding-top: 2PX;
+    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     background-color: #333c49;
     width: 100%;
     height: 50%;
+    cursor: pointer;
+    &:hover{
+        background-color: #385680;
+    }
 }
-.slider-next{
-    fill: #FFFFFF;
-    width: 10.12px;
-    height: 17.37px;
+.slider-next {
+    fill: #ffffff;
+    width: 10.12PX;
+    height: 17.37PX;
 }
-.slider-passed{
+.slider-passed {
     fill: #717883;
-    width: 10.12px;
-    height: 17.37px;
+    width: 10.12PXs;
+    height: 17.37PX;
 }

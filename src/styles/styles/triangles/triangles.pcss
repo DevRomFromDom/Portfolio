@@ -1,0 +1,70 @@
+
+.triangles {
+    position: absolute;
+    bottom: -1px;
+    height: 130px;
+    width: 100%;
+    @include desktop {
+        height: 80PX;
+    }
+    @include tablets{
+        height: 50PX;
+    }
+    @include phones{
+        height:22PX;
+    }
+    &_top {
+      top: 160PX;
+      height: 200PX;
+  
+      @include phones {
+        height: 40px;
+        margin-top: -40px;
+      }
+    }
+  
+    &_bottom {
+      margin-bottom: -90px;
+      height: 90PX;
+  
+      @include phones {
+        height: 40px;
+        margin-bottom: -40px;
+      }
+    }
+  }
+  
+  .triangles__shape {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: block;
+    width: 50%;
+    fill: #fff;
+    height: 100%;
+  
+    &_left {
+      left: 0;
+    }
+    &_right {
+      right: 0;
+    }
+  }
+  .triangles__shape_left{
+      width: 77.5%;
+      @include tablets {
+          width: 100%;
+      }
+      @include tablets {
+        width:85%;
+    }
+  }
+  .triangles__shape_right{
+      width: 22.5%;
+      @include desktop {
+          width: 20%;
+      }
+      @include tablets {
+          width: 21%;
+      }
+  }

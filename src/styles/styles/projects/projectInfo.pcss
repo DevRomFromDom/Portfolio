@@ -2,80 +2,178 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    left: -0.7%;
-    top: 2px;
+    left: 0.3%;
+    top: 2PX;
+    max-width: 338PX;
+    @include desktop{
+        left: 0.3%;
+        width: 30.7%;
+    }
+    @include tablets{
+        margin-top: 7%;
+        width: 54.95%;
+        max-width: 422PX;
+        align-self: center;
+        align-items: center;
+        left: -5.5%;
+    }
+    @include phones{
+        width: 100%;
+        margin: 0;
+        left: 0;
+        height: 608PX;
+
+    }
 }
 .projects-info__tags {
+    width: 288PX;
     position: relative;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    @include tablets{
+        width: 100%;
+        max-width: 288PX;
+    }
+    @include phones{
+        width: 85%;
+        max-width: 272PX;
+    }
+    
+}
+.tag-text{
+    @include phones{
+        font-size: 15PX;
+        line-height: 20PX;
+    }
 }
 .project-tag__item {
     display: flex;
     justify-content: center;
     align-items: center;
     background: #f3f6f9;
-    border-radius: 40px;
-    padding: 14px 22px;
+    border-radius: 40PX;
+    padding: 14PX 22PX;
     text-align: center;
-    margin-right: 8px;
+    margin-right: 8PX;
     &:last-child {
         margin-right: 0;
+    }
+    @include phones{
+        padding: 10PX 20PX;
     }
 }
 .projects-info__text {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 35px;
+    padding-top: 33PX;
+    @include desktop{
+        padding-top: 10%;
+    }
+    @include tablets{
+        width: 100%;
+        padding-top: 5%;
+        align-items: center;
+        justify-content: center;
+    }
+    @include phones{
+        width: 90%;
+        margin-left: 8.5%;
+        padding-top: 7%;
+
+    }
 }
 .project__text-title {
     font-family: Open Sans;
     font-style: normal;
     font-weight: bold;
-    font-size: 30px;
-    line-height: 41px;
+    font-size: 30PX;
+    line-height: 41PX;
     display: flex;
     align-items: center;
     color: #222427;
-    margin-bottom: 35px;
+    
+    margin-bottom: 35PX;
+    @include tablets{
+        margin-bottom: 3%;
+        text-align: center;
+    }
+    @include phones{
+        text-align: left;
+        font-size: 24PX;
+        line-height: 30PX;
+        margin-bottom: 3.3%;
+    }
 }
 .project__text-content {
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 30px;
+    font-size: 16PX;
+    line-height: 30PX;
     display: flex;
     align-items: center;
     color: rgba(51, 60, 73, 0.7);
-    margin-bottom: 45px;
+    margin-bottom: 45PX;
+    @include desktop{
+        font-size: 16PX;
+        line-height: 30PX;
+        margin-bottom: 14%;
+    }
+    @include tablets{
+        font-size: 14PX;
+        line-height: 24PX;
+        position: relative;
+        left:0.8%;
+        text-align: center;
+        margin-bottom: 6%;
+
+    }
+    @include phones{
+        align-self: flex-start;
+        text-align: left;
+        width: 90%;
+        margin-bottom: 11.5%;
+        left: 0;
+    }
 }
+
 .projects-info__link {
     position: relative;
     left:-1%;
     display: flex;
     justify-content: space-between;
-    width: 62.17%;
-    max-width: 200px;
-    height: 25px;
+    width: 90.17%;
+    max-width: 200PX;
+    height: 25PX;
+    @include tablets {
+        max-width: 165PX;
+        left:0.5%;
+    }
+    @include phones{
+        width: 100%;
+        margin: 0;
+        align-self: start;
+        margin-left: 7.5%;
+
+    }
+    
 }
 .project-link-svg {
     fill: #586ed3;
 }
 .project__link-text {
-    
+    position: relative;
     font-family: Open Sans;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
-    /* identical to box height */
-
+    font-size: 18PX;
+    line-height: 25PX;
     display: flex;
     align-items: center;
-
-    /* link */
-
     color: #586ed3;
+    @include tablets {
+        font-size: 14PX;
+        line-height: 19PX;
+    }
 }
