@@ -10,7 +10,7 @@
                     .review-arrow.next-review
                         .review-next.arrow-revive
         .reviews__content
-           swiper(ref="slider" :options="sliderOptions" @slideNextTransitionEnd ="slideNext" @slidePrevTransitionEnd ="slidePrev")    
+           swiper(ref="slider" :options="sliderOptions" @slideNextTransitionStart ="slideNext" @slidePrevTransitionStart ="slidePrev")    
                 swiper-slide(v-for="review in reviews" :key="review.id")
                     .review__block-container
                         .quote
@@ -38,7 +38,7 @@ export default {
             sliderViews: 2,
             sliderOptions: {
                 slidesPerView: 2,
-                slidesPerGroup: 2   
+                slidesPerGroup: 2,
             },
         };
     },
@@ -55,38 +55,35 @@ export default {
             const slider = this.$refs["slider"].$swiper;
             switch (direction) {
                 case "next":
-                        slider.slideNext(); 
+                    slider.slideNext();
                     break;
                 case "prev":
-                        slider.slidePrev();
+                    slider.slidePrev();
                     break;
             }
         },
-        slideNext(){
-            this.sliderViews += this.slidesChangeOnSlide
+        slideNext() {
+            this.sliderViews += this.slidesChangeOnSlide;
         },
-        slidePrev(){
-            this.sliderViews -= this.slidesChangeOnSlide
-        }
-
+        slidePrev() {
+            this.sliderViews -= this.slidesChangeOnSlide;
+        },
     },
     created() {
         const reviewsData = require("../../data/previews.json");
         this.reviews = this.requireImgToArray(reviewsData);
-        if(window.innerWidth <= 480){
+        if (window.innerWidth <= 480) {
             this.sliderOptions.slidesPerView = 1;
             this.sliderOptions.slidesPerGroup = 1;
             this.slidesChangeOnSlide = 1;
             this.sliderViews = 1;
-        } 
-    
-    },
-    computed:{
-        reviewsLength(){
-            return this.reviews.length
         }
-        
-    }
+    },
+    computed: {
+        reviewsLength() {
+            return this.reviews.length;
+        },
+    },
 };
 </script>
 
