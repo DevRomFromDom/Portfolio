@@ -1,32 +1,5 @@
 section.projects
   .projects__container 
     .projects-title Мои работы
-    .projects__content 
-      .projects__content-slider
-        .slider__preview
-          +image('content/preview-1.jpg',"preview")
-          .slider__miniature
-            - for (let i = 1;i<=4;i++)
-              .miniature__item(data-slide=`${2}`)
-                +image(`content/preview-${i}.jpg`,"preview")
-        .nav__container
-          nav.slider__nav
-            .nav-button
-              .nav-arrow.next
-                +icon({"name":'arrowNext'},"slider-next")
-            .nav-button
-              .nav-arrow.passed
-                +icon({"name":'arrowPassed'},"slider-passed")
-      .projects__content-info
-        ul.projects-info__tags
-          - var projTags = ["HTML", "CSS", "Javascript"];
-          each item in projTags
-            li.project-tag__item 
-              .tag-text #{item}
-        .projects-info__text 
-          .project__text-title Сайт школы образования
-          .project__text-content Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-        .projects-info__link
-          .project__link-icon 
-            +icon({"name":"link","height":"22.63px","width":"22.63px"},"project-link-svg")
-          .project__link-text Посмотреть сайт
+    #projects-container
+    

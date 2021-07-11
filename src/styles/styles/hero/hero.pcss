@@ -144,10 +144,12 @@
 .menu__item {
     position: relative;
     white-space: nowrap;
-    margin-right: 14.02%;
+    padding-right: 14.02%;
+    @include desktop {
+        padding-right: calc(14.02% - ((1200PX-100vw)/60));
+    }
     &:last-child {
-    
-        margin-right: 0;
+        padding-right: 0;
         @include tablets{
             left: -24PX;
         }

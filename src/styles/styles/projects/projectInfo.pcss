@@ -146,6 +146,10 @@
     width: 90.17%;
     max-width: 200PX;
     height: 25PX;
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+    }
     @include tablets {
         max-width: 165PX;
         left:0.5%;
@@ -159,8 +163,11 @@
     }
     
 }
-.project-link-svg {
-    fill: #586ed3;
+.project__link-icon{
+    fill:#586ed3;
+    width: 22.63PX;
+    height: 22.63PX;
+    background: svg-load("link.svg", fill=#586ed3, width=22.63PX, height=22.63PX) no-repeat;
 }
 .project__link-text {
     position: relative;

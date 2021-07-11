@@ -32,6 +32,7 @@
     position: absolute;
     max-width: 933PX;
     max-height: 358PX;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -102,13 +103,56 @@
     width: 53PX;
     height: 53PX;
     border-radius: 100PX;
-    border: 2PX solid white;
+    border: 3PX solid white;
     background: transparent;
     &:hover {
         border: 3PX solid rgb(84, 67, 148);
-        .arrow-revive{
-            fill:rgb(84, 67, 148);
+        .review-passed{
+            width: 10.12PX;
+            height: 17.41PX;
+            background: svg-load(
+            "arrowPassed.svg", 
+            fill=rgb(84, 67, 148), 
+            width=10.12PX,
+            height=17.41PX) 
+            no-repeat;
         }
+        .review-next{
+            background: svg-load("arrowNext.svg", fill=rgb(84, 67, 148), width=10.12PX,height=17.41PX) no-repeat;
+        }
+    }
+}
+.dis{
+    border: 3PX solid gray;
+    cursor: auto;
+    &:hover{
+        border: 3PX solid gray;
+        .review-passed{
+            width: 10.12PX;
+            height: 17.41PX;
+            background: svg-load(
+            "arrowPassed.svg", 
+            fill=grey, 
+            width=10.12PX,
+            height=17.41PX) 
+            no-repeat;
+        }
+        .review-next{
+            background: svg-load("arrowNext.svg", fill=grey, width=10.12PX,height=17.41PX) no-repeat;
+        }
+    }
+    .review-passed{
+        width: 10.12PX;
+        height: 17.41PX;
+        background: svg-load(
+        "arrowPassed.svg", 
+        fill=grey, 
+        width=10.12PX,
+        height=17.41PX) 
+        no-repeat;
+    }
+    .review-next{
+        background: svg-load("arrowNext.svg", fill=grey, width=10.12PX,height=17.41PX) no-repeat;
     }
 }
 .review-arrow {
@@ -122,15 +166,20 @@
     margin-left: 4PX;
 }
 .review-passed {
-    fill: white;
+    width: 10.12PX;
+    height: 17.41PX;
+    background: svg-load("arrowPassed.svg", fill=white, width=10.12PX,height=17.41PX) no-repeat;
 }
 .review-next {
-    fill: white;
+    width: 10.12PX;
+    height: 17.41PX;
+    background: svg-load("arrowNext.svg", fill=white, width=10.12PX,height=17.41PX) no-repeat;
 }
 .reviews__content {
     margin-top: 77PX;
     display: flex;
-    width: 947PX;
+    width: 1000PX;
+    
     @include tablets {
         margin-top: 7%;
         width: 100%;
@@ -143,6 +192,30 @@
        
     }
     
+}
+.quote{
+    width: 98px;
+    height: 100%;
+    &::before {
+        content: "";
+        width:90.9PX;
+        height:57.39PX;
+        background: svg-load("quote.svg", fill=white, width=76.9PX,height=57.39PX) no-repeat;
+        position: absolute;
+        top: 10PX;
+        left: 0;
+    }
+    @include tablets{
+        min-width: 16.54%;
+        &::before {
+            width:37PX;
+            height:27PX;
+            background: svg-load("quote.svg", fill=white, width=37PX,height=27PX) no-repeat;
+            position: absolute;
+            top: 10PX;
+            left: 0;
+        }
+    }
 }
 
 .review__content-container {
@@ -171,31 +244,10 @@
     width: 444PX;
     height: 226PX;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    &::before {
-        content: "";
-        width:90.9PX;
-        height:57.39PX;
-        background: svg-load("quote.svg", fill=white, width=76.9PX,height=57.39PX) no-repeat;
-        position: absolute;
-        top: 10PX;
-        left: 0;
-    }
-    @include desktop {
-        &::before{
-            top:19PX;
-        }
-    }
+    justify-content: space-between;
+
     @include tablets {
         max-width: 332PX;
-        &::before{
-            top:10PX;
-            width: 37PX;
-            height: 27PX;
-            background: svg-load("quote.svg", fill=white, width=37PX,height=27PX)no-repeat;
-        }
 
     }
     @include phones{
@@ -204,7 +256,9 @@
         max-width: 260PX;
     }
 }
+  
 .review-content{
+    display: flex;
     @include tablets {
         display: flex;
         flex-direction: column;
@@ -217,24 +271,32 @@
         width: 100%;
     }
 }
+.review-info{
+    max-width: 346PX;
+    @include tablets{
+        max-width: 289PX;
+    }
+    @include phones{
+        min-width: 260PX;
+    }
+}
 .review-text {
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;
-    font-size: 16PX;
-    line-height: 30PX;
+    font-size: 16px;
+    line-height: 30px;
     color: rgba(255, 255, 255, 0.5);
     width: 346PX;
     height: 120PX;
+    width: 100%;
     @include tablets{
-        font-size: 14PX;
-        line-height: 24PX;
-        width: 87.3%;
+        font-size: 14px;
+        line-height: 24px;
         
     }
     @include phones{
         margin-bottom: 6.5%;
-        width: 100%;
     }
 }
 .review__author {
@@ -242,7 +304,6 @@
     margin-top: 31PX;
     @include tablets {
         margin-top: 2%;
-        padding-right: 7%;
     }
     @include phones{
        height: 75PX;
@@ -273,10 +334,10 @@
     display: flex;
     align-items: center;
     color: #ffffff;
-    margin-bottom: 13PX;
+    margin-bottom: 13px;
     @include tablets {
-        font-size: 16PX;
-        line-height: 22PX;
+        font-size: 16px;
+        line-height: 22px;
     }
     @include phones{
         margin-bottom: 7PX;
@@ -286,11 +347,20 @@
     font-family: Open Sans;
     font-style: normal;
     font-weight: 600;
-    font-size: 16PX;
-    line-height: 22PX;
+    font-size: 16px;
+    line-height: 22px;
     display: flex;
     align-items: center;
     color: rgba(255, 255, 255, 0.25);
-    line-height: 19PX;
-    font-size: 14PX;
+    @include tablets{
+        line-height: 19px;
+        font-size: 14px;
+    }
+   
 }
+.review-avatar-item{
+    border-radius:100PX;
+    width: 75PX;
+    height: 75PX;
+}
+

@@ -1,27 +1,2 @@
 section.reviews-section 
-  .reviews__container 
-    .reviews__header 
-      .reviews-title Что обо мне говорят
-      nav.reviews__nav
-        button.review__nav-item 
-          .review-arrow
-            +icon({"name":"arrowPassed"},"review-passed arrow-revive")
-        button.review__nav-item 
-          .review-arrow.next-review
-            +icon({"name":"arrowNext"},"review-next arrow-revive")
-    .reviews__content 
-      ul.review__content-container
-        - var reviewsData = [
-        - {"name":"Ковальчук Дмитрий","job":"Основатель Loftschool","avatar":"Dmitriy.png","text":`Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!`},
-        - {"name":"Владимир Сабанцев","job":"Преподаватель","avatar":"Vladimir.png","text":"Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах"}
-        - ]
-        each item in reviewsData
-          li.review__block-container
-            .review-content 
-              .review-text #{item.text}
-              .review__author 
-                .review-author__avatar
-                  +image(`content/${item.avatar}`,"review-avatar-item") 
-                .review-author__info 
-                  .review-author-name #{item.name}
-                  .review-author-job #{item.job}
+  #reviews-container
