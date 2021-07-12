@@ -9,10 +9,15 @@ section.footer
       .footer-nav__container
         nav.footer__menu 
           ul.footer-menu__list 
-            - var menuLinks = ["Обо мне","Навыки","Работы","Отзывы"]
+            - var menuLinks = [
+            - {title: "Обо мне",link:"#about"},
+            - {title: "Навыки", link:"#skills"},
+            - {title: "Работы", link:"#projects"},
+            - {title: "Отзывы", link:"#reviews"},
+            - ]
             each item in menuLinks 
               li.menu__item 
-                a(href="#").menu__link.link #{item}
+                a(href=item.link).menu__link.link #{item.title}
         .footer__nav-aim Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
         .footer__buttons 
           ul.footer__socials 

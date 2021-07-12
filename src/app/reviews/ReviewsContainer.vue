@@ -3,14 +3,14 @@
         .reviews__header 
             .reviews-title Что обо мне говорят
             nav.reviews__nav
-                button.review__nav-item(@click="slide('prev')" :class="{dis: sliderViews === slidesChangeOnSlide }") 
+                button.review__nav-item(@click="slide('prev')" :class="{dis:sliderActiveIndex === 0}") 
                     .review-arrow
                         .review-passed.arrow-review
-                button.review__nav-item(@click="slide('next')" :class="{dis: sliderViews >= reviewsLength}") 
+                button.review__nav-item(@click="slide('next')" :class="{dis: sliderIsEnd}") 
                     .review-arrow.next-review
                         .review-next.arrow-revive
         .reviews__content
-           swiper(ref="slider" :options="sliderOptions" @slideNextTransitionStart ="slideNext" @slidePrevTransitionStart ="slidePrev")    
+           swiper(ref="mySlider" :options="sliderOptions" @slideChange="onSlideChange")    
                 swiper-slide(v-for="review in reviews" :key="review.id")
                     .review__block-container
                         .quote
@@ -34,11 +34,17 @@ export default {
     data() {
         return {
             reviews: [],
-            slidesChangeOnSlide: 2,
-            sliderViews: 2,
+            sliderIsEnd:false,
+            sliderActiveIndex: 0,
             sliderOptions: {
-                slidesPerView: 2,
-                slidesPerGroup: 2,
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                breakpoints: {
+                    480: { 
+                        slidesPerView: 2, 
+                        slidesPerGroup: 2, 
+                    },
+                },
             },
         };
     },
@@ -52,36 +58,31 @@ export default {
             });
         },
         slide(direction) {
-            const slider = this.$refs["slider"].$swiper;
+
             switch (direction) {
                 case "next":
-                    slider.slideNext();
+                    this.getMySwiper.slideNext();
                     break;
                 case "prev":
-                    slider.slidePrev();
+                    this.getMySwiper.slidePrev();
                     break;
             }
         },
-        slideNext() {
-            this.sliderViews += this.slidesChangeOnSlide;
-        },
-        slidePrev() {
-            this.sliderViews -= this.slidesChangeOnSlide;
+        onSlideChange() {
+            this.sliderActiveIndex = this.getMySwiper.activeIndex;
+            this.sliderIsEnd = this.getMySwiper.isEnd
         },
     },
     created() {
         const reviewsData = require("../../data/previews.json");
         this.reviews = this.requireImgToArray(reviewsData);
-        if (window.innerWidth <= 480) {
-            this.sliderOptions.slidesPerView = 1;
-            this.sliderOptions.slidesPerGroup = 1;
-            this.slidesChangeOnSlide = 1;
-            this.sliderViews = 1;
-        }
     },
     computed: {
         reviewsLength() {
             return this.reviews.length;
+        },
+        getMySwiper() {
+            return this.$refs.mySlider.$swiper;
         },
     },
 };
