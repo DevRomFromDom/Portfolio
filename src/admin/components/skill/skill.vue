@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import input from "../input/input.vue";
+
 import icon from "../icon/icon.vue";
 import appInput from "../input/input.vue";
 
@@ -75,7 +75,6 @@ export default {
     },
     components: {
         icon,
-        input,
         appInput,
     },
     methods: {

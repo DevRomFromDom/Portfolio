@@ -21,7 +21,7 @@
             />
         </div>
         <div class="button">
-            <round-button
+            <round-btn
                 type="round"
                 @click="addNewSkill(curTitle, curPercent)"
             />
@@ -31,7 +31,7 @@
 
 <script>
 import appInput from "../input/input.vue";
-import roundButton from "../button/button.vue";
+import roundBtn  from "../button/button.vue";
 
 export default {
     props: {
@@ -47,7 +47,7 @@ export default {
     },
     components: {
         appInput,
-        roundButton,
+        roundBtn,
     },
     methods: {
         addNewSkill(title, percent) {
