@@ -31,7 +31,7 @@
 
 <script>
 import appInput from "../input/input.vue";
-import roundBtn  from "../button/button.vue";
+import roundBtn  from "../button/types/roundBtn/roundBtn.vue";
 
 export default {
     props: {

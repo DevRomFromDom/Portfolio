@@ -4,9 +4,9 @@
             slot="title"
             v-model="categoryTitle"
             :editModeByDefault="empty"
-            @remove="$emit('removeCategory', categoryid)"
+            @remove="$emit('removeCategory', id)"
             :errorText="onTitleError"
-            @approve="approveTitle([$event, categoryid])"
+            @approve="approveTitle([$event, id])"
             @input="changeInput($event)"
         />
         <template slot="content">
@@ -14,13 +14,17 @@
                 <li class="item" v-for="item in skills" :key="item.id">
                     <skill
                         :skill="item"
-                        @remove="$emit('remove-skill', $event)"
-                        @approve="$emit('edit-skill', [$event,id])"
+                        @remove="$emit('remove-skill', [$event, id])"
+                        @approve="$emit('edit-skill', $event)"
                     />
                 </li>
             </ul>
             <div class="buttom-line">
-                <skill-add-line :blocked="empty" @addNewSkill="$emit('addNewSkill',[$event, id])" />
+                <skill-add-line
+                    :blocked="empty"
+                    @addNewSkill="$emit('addNewSkill', [$event, id])"
+                    @remove="$emit('removeSkill',[$event,id])"
+                />
             </div>
         </template>
     </card>
@@ -35,7 +39,7 @@ import skillAddLine from "../skillAddLine/skillAddLine.vue";
 export default {
     props: {
         empty: Boolean,
-        categoryid: {type: Number},
+        id: { type: Number },
         title: { type: String, default: "" },
         skills: { type: Array, default: () => [] },
     },
@@ -49,13 +53,13 @@ export default {
     methods: {
         approveTitle([event, id]) {
             if (event === "") {
-                this.onTitleError = "Заполните поле"
-            } else{
-                this.$emit("approveTitle", event)
+                this.onTitleError = "Заполните поле";
+            } else {
+                this.$emit("approveTitle", [event, id]);
             }
         },
-        changeInput(event){
-             this.onTitleError = ""
+        changeInput(event) {
+            this.onTitleError = "";
         },
     },
 };

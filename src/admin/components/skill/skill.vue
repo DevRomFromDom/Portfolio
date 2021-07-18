@@ -49,7 +49,6 @@
 </template>
 
 <script>
-
 import icon from "../icon/icon.vue";
 import appInput from "../input/input.vue";
 

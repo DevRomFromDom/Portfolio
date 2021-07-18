@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import avatar from "../avatar/avatar.vue";
+import avatar from "../avatar";
 export default {
     components:{
         avatar

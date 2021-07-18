@@ -21,14 +21,15 @@
                     :key="category.id"
                 >
                     <category
-                        :categoryid="category.id"
+                        :id="category.id"
                         :title="category.category"
                         :skills="category.skills"
                         :empty="category.id !== undefined ? false : true"
-                        @approveTitle="approveTitle([$event,categoryid])"
+                        @approveTitle="approveTitle($event)"
                         @removeCategory="removeCategory($event)"
                         @edit-skill="editSkill($event)"
                         @addNewSkill="addNewSkill($event)"
+                        @remove-skill="removeSkill($event)"
                     />
                 </li>
             </ul>
@@ -88,8 +89,8 @@ export default {
             }
         },
         removeCategory(id) {
-            console.log(id)
-            this.categories = this.categories.filter(el=> el.id !== id);
+            console.log(id);
+            this.categories = this.categories.filter((el) => el.id !== id);
         },
         editSkill([event, categoryId]) {
             this.categories = this.categories.map((cat) => {
@@ -111,15 +112,32 @@ export default {
                 }
             });
         },
-        addNewSkill([newSkill, categoryid]){
-            this.categories = this.categories.map(cat=>{
-                if(cat.id === categoryid){
-                   const newSkills= cat.skills = [...cat.skills, {id: cat.skills.length + 1, ...newSkill }]
-                   return {...cat,skills: newSkills}
-                } else { return cat}
-
-            })
-        }
+        removeSkill([skillId, categoryId]) {
+            console.log(skillId, categoryId);
+            this.category = this.categories.map((cat) => {
+                if (cat.id === categoryId) {
+                    return { ...cat, skills: cat.skills.splice(skillId, 1) };
+                } else {
+                    return cat;
+                }
+            });
+        },
+        addNewSkill([newSkill, categoryid]) {
+            this.categories = this.categories.map((cat) => {
+                if (cat.id === categoryid) {
+                    const newSkills = (cat.skills = [
+                        ...cat.skills,
+                        {
+                            id: cat.skills[cat.skills.length - 1].id + 1,
+                            ...newSkill,
+                        },
+                    ]);
+                    return { ...cat, skills: newSkills };
+                } else {
+                    return cat;
+                }
+            });
+        },
     },
 };
 </script>
