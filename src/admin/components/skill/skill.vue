@@ -19,7 +19,12 @@
     </div>
     <div class="skill-component" v-else>
         <div class="title">
-            <app-input v-model="currentSkill.title" noSidePaddings />
+            <app-input
+                v-model="currentSkill.title"
+                noSidePaddings
+                :errorMessage="errorInputTitle"
+                @input="changeTitle"
+            />
         </div>
         <div class="percent">
             <app-input
@@ -28,13 +33,15 @@
                 min="0"
                 max="100"
                 maxlength="3"
+                :errorMessage="errorInputPersent"
+                @input="changePercent"
             />
         </div>
         <div class="buttons">
             <icon
                 symbol="tick"
                 class="btn"
-                @click="$emit('approve', currentSkill)"
+                @click="approveSkill(currentSkill)"
             />
             <icon symbol="cross" class="btn" @click="changeEditMode" />
         </div>
@@ -62,6 +69,8 @@ export default {
                 title: this.skill.title,
                 percent: this.skill.percent,
             },
+            errorInputTitle: "",
+            errorInputPersent: "",
         };
     },
     components: {
@@ -72,6 +81,33 @@ export default {
     methods: {
         changeEditMode() {
             this.editMode = !this.editMode;
+        },
+        approveSkill(curskill) {
+            const title = curskill.title.trim();
+            const percent = curskill.percent;
+            if (
+                title === this.skill.title.trim() &&
+                percent === this.skill.percent
+            ) {
+                this.editMode = false;
+                return;
+            } else {
+                if (title === "") {
+                    this.errorInputTitle = "Заполните поле";
+                }
+                if (percent === "") {
+                    this.errorInputPersent = "Заполните поле";
+                } else if (title !== "" && percent !== "") {
+                    this.$emit("approve", curskill);
+                    this.editMode = false;
+                }
+            }
+        },
+        changeTitle() {
+            this.errorInputTitle = "";
+        },
+        changePercent() {
+            this.errorInputPersent = "";
         },
     },
 };

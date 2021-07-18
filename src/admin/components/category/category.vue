@@ -1,14 +1,26 @@
 <template>
     <card slim>
-        <edit-line slot="title" v-model="categoryTitle" :editModeByDefault="empty"  @remove="$emit('remove', $event)"/>
+        <edit-line
+            slot="title"
+            v-model="categoryTitle"
+            :editModeByDefault="empty"
+            @remove="$emit('removeCategory', categoryid)"
+            :errorText="onTitleError"
+            @approve="approveTitle([$event, categoryid])"
+            @input="changeInput($event)"
+        />
         <template slot="content">
             <ul class="skills" v-if="empty === false">
                 <li class="item" v-for="item in skills" :key="item.id">
-                    <skill :skill="item" @remove="$emit('remove-skill', $event)" @approve="$emit('edit-skill',$event)"/>
+                    <skill
+                        :skill="item"
+                        @remove="$emit('remove-skill', $event)"
+                        @approve="$emit('edit-skill', [$event,id])"
+                    />
                 </li>
             </ul>
             <div class="buttom-line">
-                <skill-add-line :blocked="empty" />
+                <skill-add-line :blocked="empty" @addNewSkill="$emit('addNewSkill',[$event, id])" />
             </div>
         </template>
     </card>
@@ -23,16 +35,30 @@ import skillAddLine from "../skillAddLine/skillAddLine.vue";
 export default {
     props: {
         empty: Boolean,
-        title: { type: String, default:"" },
+        categoryid: {type: Number},
+        title: { type: String, default: "" },
         skills: { type: Array, default: () => [] },
     },
     components: { card, EditLine, skill, skillAddLine },
     data() {
         return {
             categoryTitle: this.title,
+            onTitleError: "",
         };
-    }
-}
+    },
+    methods: {
+        approveTitle([event, id]) {
+            if (event === "") {
+                this.onTitleError = "Заполните поле"
+            } else{
+                this.$emit("approveTitle", event)
+            }
+        },
+        changeInput(event){
+             this.onTitleError = ""
+        },
+    },
+};
 </script>
 
 <style lang="postcss" scoped>

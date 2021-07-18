@@ -7,7 +7,8 @@
         <div class="page-content">
             <div class="header">
                 <div class="title">Блок "Обо мне"</div>
-                <iconed-btn v-if="emptyCatIsAdded === false"
+                <iconed-btn
+                    v-if="emptyCatIsAdded === false"
                     type="iconed"
                     @click="addNewCategory"
                     title="Добавить группу"
@@ -20,13 +21,16 @@
                     :key="category.id"
                 >
                     <category
-                        :id="category.id"
+                        :categoryid="category.id"
                         :title="category.category"
                         :skills="category.skills"
                         :empty="category.id !== undefined ? false : true"
+                        @approveTitle="approveTitle([$event,categoryid])"
+                        @removeCategory="removeCategory($event)"
+                        @edit-skill="editSkill($event)"
+                        @addNewSkill="addNewSkill($event)"
                     />
                 </li>
-              
             </ul>
         </div>
     </div>
@@ -47,20 +51,76 @@ export default {
         category,
     },
     data() {
-        return{
+        return {
             categories: [],
             emptyCatIsAdded: false,
-        }
+        };
     },
     created() {
         this.categories = require("./data/categories.json");
     },
-    methods:{
-        addNewCategory(){
-            this.categories = [{},...this.categories],
-            this.emptyCatIsAdded = !this.emptyCatIsAdded
+    methods: {
+        addNewCategory() {
+            (this.categories = [{}, ...this.categories]),
+                (this.emptyCatIsAdded = !this.emptyCatIsAdded);
+        },
+        approveTitle([event, id]) {
+            console.log(event, id);
+            if (id === undefined) {
+                this.categories.splice(0, 1);
+                this.categories = [
+                    ...this.categories,
+                    {
+                        id: this.categories.length + 1,
+                        category: `${event}`,
+                        skills: [],
+                    },
+                ];
+                this.emptyCatIsAdded = false;
+            } else {
+                this.categories = this.categories.map((cat) => {
+                    if (cat.id !== id) {
+                        return cat;
+                    } else {
+                        return { ...cat, category: event };
+                    }
+                });
+            }
+        },
+        removeCategory(id) {
+            console.log(id)
+            this.categories = this.categories.filter(el=> el.id !== id);
+        },
+        editSkill([event, categoryId]) {
+            this.categories = this.categories.map((cat) => {
+                if (cat.id === categoryId) {
+                    const newcatSkills = cat.skills.map((skill) => {
+                        if (skill.id === event.id) {
+                            return {
+                                id: event.id,
+                                title: event.title,
+                                percent: event.percent,
+                            };
+                        } else {
+                            return skill;
+                        }
+                    });
+                    return { ...cat, skills: newcatSkills };
+                } else {
+                    return cat;
+                }
+            });
+        },
+        addNewSkill([newSkill, categoryid]){
+            this.categories = this.categories.map(cat=>{
+                if(cat.id === categoryid){
+                   const newSkills= cat.skills = [...cat.skills, {id: cat.skills.length + 1, ...newSkill }]
+                   return {...cat,skills: newSkills}
+                } else { return cat}
+
+            })
         }
-    }
+    },
 };
 </script>
 
