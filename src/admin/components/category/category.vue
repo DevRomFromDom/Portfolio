@@ -4,9 +4,9 @@
             slot="title"
             v-model="categoryTitle"
             :editModeByDefault="empty"
-            @remove="$emit('removeCategory', id)"
+            @removeCategory="$emit('removeCategory', id)"
             :errorText="onTitleError"
-            @approve="approveTitle([$event, id])"
+            @approve="$emit('approveTitle', [$event,id])"
             @input="changeInput($event)"
         />
         <template slot="content">
@@ -23,7 +23,7 @@
                 <skill-add-line
                     :blocked="empty"
                     @addNewSkill="$emit('addNewSkill', [$event, id])"
-                    @remove="$emit('removeSkill',[$event,id])"
+                    @remove="$emit('removeSkill', [$event, id])"
                 />
             </div>
         </template>
@@ -35,6 +35,7 @@ import card from "../card/card.vue";
 import EditLine from "../editLine/editLine.vue";
 import skill from "../skill/skill.vue";
 import skillAddLine from "../skillAddLine/skillAddLine.vue";
+import { mapActions } from "vuex";
 
 export default {
     props: {
@@ -51,13 +52,9 @@ export default {
         };
     },
     methods: {
-        approveTitle([event, id]) {
-            if (event === "") {
-                this.onTitleError = "Заполните поле";
-            } else {
-                this.$emit("approveTitle", [event, id]);
-            }
-        },
+        ...mapActions({
+            createCategoryAction: "categories/createCategory",
+        }),
         changeInput(event) {
             this.onTitleError = "";
         },

@@ -1,0 +1,86 @@
+.login-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("~images/content/admin-2.jpg") center center / cover no-repeat;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: 1;
+      background: hsla(213, 27%, 24%, 0.9);
+    }
+}
+.auth-container {
+    position: relative;
+    width: 565px;
+    height: 520px;
+    background: white;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    margin: 47px 75px 70px 80px;
+}
+.title {
+    align-self: center;
+    font-size: 36px;
+    line-height: 49px;
+    color: #43436b;
+}
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 30px;
+    flex:0;
+}
+.cross {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: 29px;
+    top: 29px;
+    cursor: pointer;
+    background: svg-load(
+            "cross-2.svg", 
+            fill=#414C63, 
+            width=19PX,
+            height=19PX) center
+            no-repeat;
+    &:hover{
+        background: svg-load(
+            "cross-2.svg", 
+            fill=rgb(179, 4, 4), 
+            width=19PX,
+            height=19PX) center
+            no-repeat;
+    }
+}
+.inputs {
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 48px;
+}
+.login{
+    margin-bottom: 35px;
+}
+.submit-button{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 8%;
+}

@@ -1,0 +1,71 @@
+.page-content {
+    padding: 60px 28px 0 58px;
+    background: url("../../../images/content/admin.jpg") center center / cover no-repeat;
+    flex: 1;
+    @media screen and (max-width: 768px ) {
+      padding: 40px 28px 0 28px;
+      
+    }
+    @media screen and (max-width: 480px ) {
+      padding: 35px 0px 0px 0px;
+      
+    }
+  }
+  
+  .title {
+    margin-right: 60px;
+    font-size: 21px;
+    font-weight: bold;
+    color: $text-color;
+    @media screen and (max-width: 480px ) {
+      font-size: 18px;
+      line-height: 25px;
+      
+    }
+  }
+  
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    @media screen and (max-width: 480px ) {
+      flex-direction: column;
+      
+    }
+  }
+  
+  .item {
+    width: calc(100% / 2 - 30px);
+    margin-right: 30px;
+    margin-bottom: 25px;
+    @media screen and (max-width: 768px ) {
+      margin-bottom: 28px;
+      width: calc(100% /2 - 14px);
+      margin-right: 28px;
+      &:last-child{
+        margin-right: 0;  
+      }
+      
+    }
+    @media screen and (max-width: 480px ) {
+      margin-bottom: 36px;
+      margin-right: 0;
+      width: 100%;
+      
+    }
+  }
+  .header {
+    display: flex;
+    margin-bottom: 60px;
+    @media screen and (max-width: 480px ) {
+      flex-direction: column;
+      margin-left: 20px;
+      justify-content: space-between;
+      line-height: 25px;
+      font-size: 18px;
+      margin-bottom: 40px;
+      height: 60px;
+      
+    }
+  }
+  
+  

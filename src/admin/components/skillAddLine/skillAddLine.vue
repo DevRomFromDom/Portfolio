@@ -5,8 +5,8 @@
                 noSidePaddings
                 placeholder="   Новый навык"
                 v-model="curTitle"
-                :errorMessage="errorInputTitle"
-                @input="titleChange"
+                :errorMessage="validation.firstError('curTitle')"
+                @input="validation.reset()"
             />
         </div>
         <div class="percent">
@@ -16,8 +16,8 @@
                 max="100"
                 maxlength="3"
                 v-model="curPercent"
-                :errorMessage="errorInputPersent"
-                @input="percentChange"
+                :errorMessage="validation.firstError('curPercent')"
+                @input="validation.reset()"
             />
         </div>
         <div class="button">
@@ -32,8 +32,21 @@
 <script>
 import appInput from "../input/input.vue";
 import roundBtn  from "../button/types/roundBtn/roundBtn.vue";
+import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
 
 export default {
+    mixins:[ValidatorMixin],
+    validators:{
+        "curTitle": (value)=>{
+            return Validator.value(value).required("Не может быть пустым");
+        },
+        "curPercent": (value)=>{
+            return Validator.value(value)
+            .integer("Должно быть числом")
+            .between(0,100, "Не корректное значение")
+            .required("Не может быть пустым")
+        }
+    },
     props: {
         blocked: Boolean,
     },
@@ -41,8 +54,6 @@ export default {
         return {
             curTitle: "",
             curPercent: "",
-            errorInputTitle: "",
-            errorInputPersent: "",
         };
     },
     components: {
@@ -50,26 +61,13 @@ export default {
         roundBtn,
     },
     methods: {
-        addNewSkill(title, percent) {
-            if (title === "" || percent === "") {
-                if (percent === "") {
-                    this.errorInputPersent = "Заполните поле";
-                }
-                if (title === "") {
-                    this.errorInputTitle = "Заполните поле";
-                }
-            } else {
+        async addNewSkill(title, percent) {
+            if(await this.$validate()=== false) return;
                 this.$emit("addNewSkill", { title, percent });
                 this.curPercent = "";
                 this.curTitle = "";
             }
-        },
-        titleChange() {
-            this.errorInputTitle = "";
-        },
-        percentChange() {
-            this.errorInputPersent = "";
-        },
+       
     },
 };
 </script>

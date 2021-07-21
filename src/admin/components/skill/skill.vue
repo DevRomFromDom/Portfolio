@@ -67,6 +67,7 @@ export default {
                 id: this.skill.id,
                 title: this.skill.title,
                 percent: this.skill.percent,
+                category: this.skill.category
             },
             errorInputTitle: "",
             errorInputPersent: "",

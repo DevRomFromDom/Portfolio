@@ -1,6 +1,6 @@
 <template>
   <div class="user-component">
-      <avatar size="2.7" :src="getUserAvatar" />
+      <avatar :size="size" :src="getUserAvatar" />
       <div class="username">Каменских Роман</div>
   </div>
 </template>
@@ -8,12 +8,23 @@
 <script>
 import avatar from "../avatar";
 export default {
+    data(){
+        return {
+            size : '2.7'
+        }
+    },
     components:{
         avatar
     },
     computed:{
         getUserAvatar(){
-            return require("../../../images/content/user.jpg").default
+            return require("../../../../src/images/content/user.jpg").default
+        }
+    },
+    created(){
+        if(window.innerWidth <= 480){
+            this.size = '3.4'
+
         }
     }
 
@@ -32,5 +43,10 @@ export default {
 }
 .username{
     margin-left: 18px;
+    @media screen and (max-width: 480px ) {
+      font-size:16px;
+      line-height: 22px;
+      padding-bottom: 10%;
+    }
 }
 </style>

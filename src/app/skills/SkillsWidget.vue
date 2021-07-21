@@ -10,13 +10,21 @@
 </template>
 
 <script>
+import axios from "axios";
 import SkillItem from "./SkillItem.vue";
 export default {
     data() {
         return { skills: [] };
     },
-    created() {
-        this.skills = require("../../data/skills.json");
+    async created() {
+        try {
+            const {data} = await axios.get(
+                "https://webdev-api.loftschool.com/categories/486"
+            );
+            this.skills = data
+        } catch (e) {
+            throw new Error(e);
+        }
     },
     components: {
         SkillItem,

@@ -2,8 +2,9 @@
     <div class="edit-line-component" :class="{ blocked: blocked }">
         <div class="title" v-if="editmode === false">
             <div class="text">{{ value }}</div>
-            <div class="icon">
+            <div class="icons">
                 <icon symbol="pencil" grayscale @click="editmode = true"></icon>
+                <icon grayscale symbol="trash"  @click="$emit('removeCategory')"/>
             </div>
         </div>
         <div v-else class="title">
@@ -23,7 +24,7 @@
                     <icon symbol="tick" @click="onApprove"></icon>
                 </div>
                 <div class="button-icon">
-                    <icon symbol="cross" @click="$emit('remove')"></icon>
+                    <icon symbol="cross" @click="noChange"></icon>
                 </div>
             </div>
         </div>
@@ -60,12 +61,17 @@ export default {
             } else {
                 if (this.value.trim() !== "") {
                     this.$emit("approve", this.value);
+                    this.title = this.value
                     this.editmode = false;
                 } else {
-                     this.$emit("approve", this.value);
+                    this.$emit("approve", this.value);
                 }
             }
         },
+        noChange(){
+            this.editmode = false;
+            this.title = this.value
+        }
     },
     components: {
         icon: () => import("components/icon"),
@@ -75,7 +81,5 @@ export default {
 </script>
 
 <style lang="postcss" scoped src="./editLine.pcss">
-.input {
-    flex: 1;
-}
+
 </style>

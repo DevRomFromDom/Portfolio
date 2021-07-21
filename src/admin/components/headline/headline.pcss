@@ -5,9 +5,22 @@
     display: flex;
     padding: 16px 0;
     align-items: center;
+    @media screen and (max-width: 480px ) {
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        
+      }
+    
 }
 .buttons{
     margin-left: auto;
+    @media screen and (max-width: 480px ) {
+        margin-left: 65px;
+        position: absolute;
+        margin-top: 41px;
+        
+      }
 
 }
 .btn{
@@ -17,4 +30,8 @@
 .title{
     margin-left: 30px;
     color: rgba(255, 255, 255, 0.5);
+    @media screen and (max-width: 480px ) {
+        display: none;
+        
+      }
 }
