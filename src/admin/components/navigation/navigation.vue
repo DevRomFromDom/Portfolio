@@ -4,12 +4,12 @@
             <ul class="list">
                 <li
                     v-for="link in links"
-                    :class="['item', { active: link.active }]"
+                    :class="['item', { active: route === link.alias}]"
                     :key="link.id"
                 >
-                    <a :href="`/${link.alias}`" class="link">{{
-                        link.title
-                    }}</a>
+                    <a @click="changePage(link.alias)" class="link">
+                        {{ link.title }}
+                    </a>
                 </li>
             </ul>
         </div>
@@ -17,17 +17,29 @@
 </template>
 
 <script>
-const links = [
-    { id: 0, title: "Обо мне", alias: "about", active: true },
-    { id: 1, title: "Работы", alias: "projets", active: false },
-    { id: 2, title: "Отзывы", alias: "reviews", active: false },
-];
 export default {
     data() {
         return {
-            links,
+            links: [
+                { id: 0, title: "Обо мне", alias: "/", active: false },
+                { id: 1, title: "Работы", alias: "/projects", active: false },
+                { id: 2, title: "Отзывы", alias: "/reviews", active: false },
+            ],
+            currentLink: "/",
+          
         };
     },
+    methods: {
+        changePage(curlink) {
+            if(this.route === curlink) return;
+            this.$router.replace(`${curlink}`);
+        },
+    },
+    computed:{
+        route(){
+            return this.$route.path
+        }
+    }
 };
 </script>
 

@@ -8,21 +8,23 @@ if (token) {
   axios.defaults.headers["Authorization"] = `Bearer ${token}`;
 }
 axios.interceptors.response.use(
-    async (response) => {
+    (response) => {
         return response;
     },
     async (error) => {
+        console.log(error.response)
         const {
             config,
             response: { status, data },
         } = error;
-        const curtoken = await localStorage.getItem("token")
-        if (status === 401 && curtoken) {
-            console.log(curtoken)
-            const {newToken} = await axios.post("/refreshToken");
-            await localStorage.setItem("token", newToken.token);
-            axios.defaults.headers["Authorization"] = `Bearer ${newToken.token}`;
-        }else 
+        if (status === 401 && token) {
+            const response = await axios.post("/refreshToken");
+            const token = response.data.token;
+            await localStorage.setItem("token", token);
+            axios.defaults.headers["Authorization"] = `Bearer ${token}`;
+            config.defaults.headers["Authorization"] = `Bearer ${token}`;
+            return axios(origReq)
+        }
 
         return Promise.reject(error);
     }

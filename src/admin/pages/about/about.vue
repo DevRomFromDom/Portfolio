@@ -1,7 +1,7 @@
 <template>
     <div class="page-content">
         <div class="header">
-            <div class="title">Блок "Обо мне"</div>
+            <div class="title">Блок «Обо мне»</div>
             <iconed-btn
                 v-if="emptyCatIsAdded === false"
                 type="iconed"

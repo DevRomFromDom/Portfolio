@@ -18,19 +18,21 @@
                             .review-text {{review.text}}
                             .review__author 
                                 .review-author__avatar
-                                    img(:src="review.pic").review-avatar-item
+                                    img(:src="review.photo").review-avatar-item
                                 .review-author__info 
-                                        .review-author-name {{review.name}}
+                                        .review-author-name {{review.author}}
                                         .review-author-job {{review.occ}}
 </template>
 
 <script>
+import axios from "axios"
 import { SwiperSlide, Swiper } from "vue-awesome-swiper";
 export default {
     components: {
         SwiperSlide,
         Swiper,
     },
+
     data() {
         return {
             reviews: [],
@@ -49,14 +51,6 @@ export default {
         };
     },
     methods: {
-        requireImgToArray(data) {
-            return data.map((el) => {
-                const reqireImage = require(`../../images/content/${el.pic}`)
-                    .default;
-                el.pic = reqireImage;
-                return el;
-            });
-        },
         slide(direction) {
 
             switch (direction) {
@@ -73,9 +67,19 @@ export default {
             this.sliderIsEnd = this.getMySwiper.isEnd
         },
     },
-    created() {
-        const reviewsData = require("../../data/previews.json");
-        this.reviews = this.requireImgToArray(reviewsData);
+    async created() {
+        try {
+            const { data } = await axios.get(
+                "https://webdev-api.loftschool.com/reviews/486"
+            );
+            this.reviews = await data.map((item) => {
+                item.photo = `https://webdev-api.loftschool.com/${item.photo}`;
+                return item;
+            });
+            console.log(this.reviews)
+        } catch (error) {
+            throw new Error(error);
+        }
     },
     computed: {
         reviewsLength() {

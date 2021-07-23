@@ -6,7 +6,7 @@ export default {
     mutations: {
         SET_CATEGORIES: (state, categories) => (state.data = categories),
         ADD_CATEGORY: (state, category) => state.data.unshift(category),
-        DELITE_CATEGORY: (state, id) =>
+        DELETE_CATEGORY: (state, id) =>
             (state.data = state.data.filter((el) => el.id !== id)),
         EDIT_CATEGORY: (state, { title, id }) =>
             (state.data = state.data.map((cat) => {
@@ -22,7 +22,7 @@ export default {
                 }
                 return el;
             })),
-        DELITE_SKILL: (state, { skillId, categoryId }) =>
+        DELETE_SKILL: (state, { skillId, categoryId }) =>
             (state.data = state.data.map((category) => {
                 if (category.id === categoryId) {
                     return {
@@ -55,10 +55,10 @@ export default {
             })),
     },
     actions: {
-        async getCategories({ commit }) {
+        async getCategories({ commit,dispatch }) {
             try {
                 const userData = await this.$axios.get("/user");
-                const { data } = await this.$axios.get(
+                const {data} = await this.$axios.get(
                     `/categories/${userData.data.user.id}`
                 );
                 commit("SET_CATEGORIES", data);
@@ -102,7 +102,7 @@ export default {
             try {
                 const res = await this.$axios.delete(`/categories/${id}`);
                 console.log(res)
-                commit("DELITE_CATEGORY", id);
+                commit("DELETE_CATEGORY", id);
                 dispatch(
                     "tooltips/show",
                     {
@@ -174,7 +174,7 @@ export default {
         async removeSkill({ dispatch, commit }, { skillId, categoryId }) {
             try {
                 const res = await this.$axios.delete(`/skills/${skillId}`);
-                commit("DELITE_SKILL", { skillId, categoryId });
+                commit("DELETE_SKILL", { skillId, categoryId });
                 dispatch(
                     "tooltips/show",
                     {

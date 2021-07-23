@@ -2,146 +2,139 @@
     position: relative;
     display: flex;
     width: 69.98%;
-    max-height: 549PX;
-    @include desktop{
+    max-height: 549px;
+    @include desktop {
         margin-top: 0%;
         width: 69.22%;
         height: 68.25%;
-        max-width: 672.23PX;
-        max-height: 359PX;
+        max-width: 672.23px;
+        max-height: 359px;
     }
-    @include tablets{
+    @include tablets {
         width: 95.52%;
-        max-width: 672.23PX;
+        max-width: 672.23px;
         height: 68%;
-        max-height: 359PX;
+        max-height: 359px;
         align-items: center;
-        
     }
-    @include phones{
+    @include phones {
         width: 100%;
         margin: 0;
         margin-bottom: 15%;
-
     }
 }
 .slider__preview {
     position: relative;
-    max-width: 975PX;
-    max-height: 549PX;
+    max-width: 975px;
+    max-height: 549px;
     width: 94.8%;
-    @include desktop{
-        max-width: 637.57PX;
-        max-height: 359PX;
+    @include desktop {
+        max-width: 637.57px;
+        max-height: 359px;
     }
     @include tablets {
-        max-width: 637.57PX;
-        max-height: 359PX;
+        max-width: 637.57px;
+        max-height: 359px;
     }
-    @include phones{
+    @include phones {
         width: 100%;
         margin: 0;
-
     }
     &:before {
         content: attr(data-preview);
         position: absolute;
         line-height: 1;
         top: 38%;
-        font-size: 400PX;
+        font-size: 400px;
         right: -18%;
         font-weight: 800;
-        line-height: 48PX;
+        line-height: 48px;
         color: #e6e6e6;
         z-index: -2;
-        @include desktop{
+        @include desktop {
             top: 48.5%;
-            font-size: 300PX;
+            font-size: 300px;
             right: -20.5%;
         }
-        @include tablets{
+        @include tablets {
             top: 60%;
             right: -18%;
         }
-}
-.preview {
-    width: 100%;
-    height: 100%;
-    object-fit: top cover;
-    @include tablets{
-        max-height: 359PX;
     }
-}
-.slider__miniature {
-    position: absolute;
-    display: flex;
-    height: 103PX;
-    max-width: 717PX;
-    left: 27.09%;
-    top: 71.038%;
-    @include desktop{
-        width: 73.6%;
-        max-width: 468.86PX;
-        height: 67.35PX;
-        left:26.5%;
-        top: 70%
+    .preview {
+        width: 100%;
+        height: 100%;
+        object-fit: top cover;
+        @include tablets {
+            max-height: 359px;
+        }
     }
-    @include phones{
-     display: none;
-
+    .slider__miniature {
+        position: absolute;
+        display: flex;
+        height: 103px;
+        max-width: 717px;
+        right: 0;
+        top: 71.038%;
+        @include desktop {
+            width: 73.6%;
+            max-width: 468.86px;
+            height: 67.35px;
+            right: 0;
+            top: 70%;
+        }
+        @include phones {
+            display: none;
+        }
     }
-
-}
-.miniature__item {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-    } 
+    .miniature__item {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
 }
 .active {
-    border: 3PX solid #DC9322;
+    border: 3px solid #dc9322;
 }
 .nav__container {
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 53PX;
+    width: 53px;
     bottom: 0.3%;
     right: 0;
     height: 100%;
     @include desktop {
-        width: 34.66PX;
+        width: 34.66px;
         height: auto;
         bottom: 10%;
     }
-    @include phones{
+    @include phones {
         bottom: 0;
-        width: 55PX;
-        height: 109.66PX;
+        width: 55px;
+        height: 109.66px;
     }
-
 }
 .slider__nav {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 53PX;
-    height: 106PX;
+    width: 53px;
+    height: 106px;
     top: 71%;
     @include desktop {
-        width: 34.66PX;
-        height: 69.32PX;
+        width: 34.66px;
+        height: 69.32px;
         top: 71%;
     }
-    @include phones{
-        width: 55PX;
-        height: 109.66PX;
+    @include phones {
+        width: 55px;
+        height: 109.66px;
         top: 0;
     }
-   
 }
 .nav-button {
-    padding-top: 2PX;
+    padding-top: 2px;
     position: relative;
     display: flex;
     align-items: center;
@@ -150,21 +143,32 @@
     width: 100%;
     height: 50%;
     cursor: pointer;
-    &:hover{
+    &:hover {
         background-color: #385680;
     }
 }
 .slider-next {
     fill: #ffffff;
-    width: 10.12PX;
-    height: 17.37PX;
-    background: svg-load("arrowNext.svg", fill=white, width=10.12PX,height=17.37PX) no-repeat;
-}
-    
-.slider-passed {
-    fill: #717883;
-    width: 10.12PXs;
-    height: 17.37PX;
-    background: svg-load("arrowPassed.svg", fill=#717883, width=10.12PX,height=17.37PX) no-repeat;
+    width: 10.12px;
+    height: 17.37px;
+    background: svg-load(
+            "arrowNext.svg",
+            fill=white,
+            width=10.12PX,
+            height=17.37PX
+        )
+        no-repeat;
 }
 
+.slider-passed {
+    fill: #717883;
+    width: 10.12pxs;
+    height: 17.37px;
+    background: svg-load(
+            "arrowPassed.svg",
+            fill=#717883,
+            width=10.12PX,
+            height=17.37PX
+        )
+        no-repeat;
+}

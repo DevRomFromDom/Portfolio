@@ -1,7 +1,7 @@
 <template lang="pug">
     .projects__content-slider
-        .slider__preview(:data-preview="projects[currentIndex].id")
-            img(:src="projects[currentIndex].photo").preview
+        .slider__preview(:data-preview="sliderIndex")
+            img(:src="projects[0].photo").preview
             .slider__miniature
                 .miniature__item(
                     :data-slide="slide.id" 
@@ -21,15 +21,17 @@
 
 <script>
 export default {
-    props:["projects","currentIndex"],
-    methods:{
-        slide (direction){
-            this.$emit("slide", direction)
-        }
+    props: {
+        projects: Array,
+        currentIndex: Number,
+        sliderIndex: Number,
     },
-}
+    methods: {
+        slide(direction) {
+            this.$emit("slide", direction);
+        },
+    },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -1,0 +1,76 @@
+.page-content {
+    padding: 60px 36px 0 60px;
+    background: url("../../../images/content/admin.jpg") center center / cover
+        no-repeat;
+    flex: 1;
+    @media screen and (max-width: 768px) {
+        padding: 40px 0 0 0;
+
+    }
+    @media screen and (max-width: 480px) {
+        padding: 35px 0px 0px 0px;
+    }
+}
+.header {
+    display: flex;
+    margin-bottom: 52px;
+    @media screen and (max-width: 480px) {
+        flex-direction: column;
+        margin-left: 20px;
+        justify-content: space-between;
+        line-height: 25px;
+        font-size: 18px;
+        margin-bottom: 40px;
+        height: 60px;
+    }
+}
+.title {
+    margin-right: 60px;
+    font-size: 21px;
+    font-weight: bold;
+    color: $text-color;
+    @media screen and (max-width: 768px) {
+        margin-left: 30px;
+    }
+    @media screen and (max-width: 480px ) {
+      font-size: 18px;
+      line-height: 25px;
+      
+    }
+  }
+.projects__content-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    @media screen and (max-width: 768px ) {
+        padding: 0 28px
+         
+       }
+   ;
+    @media screen and (max-width: 480px) {
+        padding: 0;
+    }
+}
+.create-project{
+    display: flex;
+    width: calc(100%/3 - 28px);
+    height: 580px;
+    max-height: 580px;
+    margin-right: 28px;
+    margin-bottom: 28px;
+    &:hover{
+        opacity: 0.8;
+    }
+    @media screen and (max-width: 768px ) {
+       width: calc(100%/2-28px);
+       
+        
+      }
+
+      @media screen and (max-width: 480px) {
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
+        max-width: 340PX;
+    }
+}

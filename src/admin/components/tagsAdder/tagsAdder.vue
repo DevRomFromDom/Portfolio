@@ -1,6 +1,11 @@
 <template>
     <div class="tags-adder-component">
-        <app-input title="Добавление тэга" v-model="currentTags" @input="$emit('change', currentTags)" />
+        <app-input
+            title="Добавление тэга"
+            v-model="currentTags"
+            @input="$emit('change', currentTags)"
+            :errorMessage="valError"
+        />
         <ul class="tags">
             <li
                 class="tag"
@@ -27,7 +32,7 @@ export default {
     },
     data() {
         return {
-            currentTags: this.tags
+            currentTags: this.tags,
         };
     },
     computed: {
@@ -45,21 +50,21 @@ export default {
                 console.log(tags, index);
                 tags.splice(index, 1);
                 this.currentTags = tags.join(", ");
-                this.$emit("change", this.currentTags)
+                this.$emit("change", this.currentTags);
             }
-    
         },
     },
-    model:{
+    model: {
         prop: "tags",
-        event: "change"
+        event: "change",
     },
-    props:{
-        tags:{
+    props: {
+        tags: {
             type: String,
-            default: ""
-        }
-    }
+            default: "",
+        },
+        valError: String 
+    },
 };
 </script>
 

@@ -1,0 +1,163 @@
+.from-container {
+    margin: 19px 0;
+}
+.form-cols {
+    display: flex;
+    @media screen and (max-width: 768px) {
+        justify-content: space-around;
+        align-items: center;
+    }
+    @media screen and (max-width: 480px) {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+}
+
+.form-avatar {
+    width: 20%;
+    margin-right: 30px;
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 200PX;
+        max-width: 200PX;
+        margin-right: 0;
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+.avatar-load {
+    border-radius: 100px;
+}
+.form-review {
+    flex: 1;
+    margin-right: 30px;
+    max-width: 620px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        max-width: 430px;
+        margin-right: 0;
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.uploader {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #dee4ed;
+    padding: 0 23%;
+    text-align: center;
+    position: relative;
+    background-size: cover;
+    &::before {
+        content: "";
+        width: 77.4PX;
+        height: 99PX;
+        background: svg-load("user.svg", fill=#fff, width= 77.4PX, height= 99PX)
+            no-repeat;
+    }
+
+    &.active {
+        &::before{
+            display: none;
+        }
+    }
+    &.warn {
+        border: 1px solid red;
+        background: rgba(255, 0, 0, 0.137);
+        &::before {
+            content: "";
+            width: 77.4px;
+            height: 99px;
+            background: svg-load("user.svg", fill=rgb(197, 85, 85), width= 77.4px, height= 99px)
+                no-repeat;
+        }
+    }
+
+    &.hovered {
+        border: 1px dashed blue;
+    }
+}
+
+.uploader-title {
+    color: $text-color;
+    opacity: 0.5;
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.form-row {
+    margin-bottom: 30px;
+    width: 100%;
+}
+.author-info{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+   
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: calc(100%-140px);
+
+    @media screen and (max-width: 768px) {
+        width: 96%;
+    }
+    @media screen and (max-width: 480px) {
+        width: 100%;
+        align-self: center;
+        justify-content: center;
+    }
+}
+
+.btn {
+    margin-right: 10px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+.create-review-component {
+    width: 100%;
+    padding-right: 28px;
+    margin-bottom: 28px;
+    @media screen and (max-width: 768px) {
+        padding-right: 0;
+    }
+    @media screen and (max-width: 480px) {
+        padding: 0;
+    }
+}
+.edit-button {
+    padding: 15px 0;
+    text-align: center;
+    font-size: 16px;
+    line-height: 22px;
+    color: #383bcf;
+}

@@ -1,0 +1,111 @@
+.from-container {
+    margin: 19px 0;
+}
+.form-cols {
+    display: flex;
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.form-col {
+    width: 50%;
+    margin-right: 30px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        max-width: 500px;
+        margin-right: 0;
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.uploader {
+    min-height: 276px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #dee4ed;
+    border: 1px dashed #a1a1a1;
+    padding: 0 23%;
+    text-align: center;
+    position: relative;
+    background-size: cover;
+
+    &.active {
+        .uploader-title {
+            background: rgba(#fff, 1);
+            overflow: hidden;
+            opacity: 1;
+            border-radius: 10px;
+        }
+    }
+    &.warn {
+        border-color: red;
+        background: rgba(255, 0, 0, 0.137);
+        .uploader-title {
+            color: red;
+        }
+    }
+
+    &.hovered {
+        border-color: blue;
+    }
+}
+
+.uploader-title {
+    color: $text-color;
+    opacity: 0.5;
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.form-row {
+    margin-bottom: 30px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    @media screen and (max-width: 768px) {
+        justify-content: center;
+    }
+}
+
+.btn {
+    margin-right: 10px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+.create-project-component {
+    width: 100%;
+    padding-right: 28px;
+    margin-bottom: 28px;
+    @media screen and (max-width: 768px) {
+      padding-right: 0;
+    }
+    @media screen and (max-width: 480px) {
+        padding: 0;
+
+    }
+}
+.edit-button {
+    padding: 15px 0;
+    text-align: center;
+    font-size: 16px;
+    line-height: 22px;
+    color: #383bcf;
+}

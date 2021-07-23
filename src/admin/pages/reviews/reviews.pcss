@@ -1,0 +1,84 @@
+.page-content {
+    padding: 60px 38px 0px 60px;
+
+    background: url("../../../images/content/admin.jpg") center center / cover
+        no-repeat;
+    flex: 1;
+    @media screen and (max-width: 1200px) {
+        padding: 40px 30px 0px 30px;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 40px 20px 0px 20px;
+    }
+    @media screen and (max-width: 480px) {
+        padding: 35px 0px 0px 0px;
+    }
+}
+.header {
+    display: flex;
+    margin-bottom: 52px;
+    @media screen and (max-width: 480px) {
+        flex-direction: column;
+        justify-content: space-between;
+        line-height: 25px;
+        font-size: 18px;
+        margin-bottom: 10px;
+        height: 60px;
+        width: 100%;
+    }
+}
+.title {
+    margin-right: 60px;
+    font-size: 21px;
+    font-weight: bold;
+    color: $text-color;
+    @media screen and (max-width: 768px) {
+        margin-left: 30px;
+    }
+    @media screen and (max-width: 480px) {
+        font-size: 18px;
+        line-height: 25px;
+    }
+}
+.reviews__content-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    @media screen and (max-width: 768px) {
+        padding: 0px 0px 0px 0px;
+    }
+    @media screen and (max-width: 480px) {
+        padding: 0;
+    }
+}
+.create-reviews {
+    display: flex;
+    width: calc(100% / 3 - 28px);
+    height: 385px;
+    max-height: 385px;
+    margin-right: 28px;
+    margin-bottom: 28px;
+    &:hover {
+        opacity: 0.8;
+    }
+
+    @media screen and (max-width: 1200px) {
+        width: calc(100% / 3 - 14px);
+        margin: 0 14px 14px 0;
+        height: auto;
+    }
+    @media screen and (max-width: 768px) {
+        width: calc(100% / 2-28px);
+        margin: 0 28px 28px 0;
+        height: 385px;
+    }
+
+    @media screen and (max-width: 480px) {
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
+        max-width: 390px;
+        margin-bottom: 10px;
+    }
+}
