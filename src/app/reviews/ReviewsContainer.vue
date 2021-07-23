@@ -76,7 +76,6 @@ export default {
                 item.photo = `https://webdev-api.loftschool.com/${item.photo}`;
                 return item;
             });
-            console.log(this.reviews)
         } catch (error) {
             throw new Error(error);
         }

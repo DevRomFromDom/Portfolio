@@ -12,10 +12,11 @@
     }
     @include tablets {
         width: 95.52%;
-        max-width: 672.23px;
+        max-width: 672.23PX;
         height: 68%;
-        max-height: 359px;
+        max-height: 359PX;
         align-items: center;
+        flex: 1;
     }
     @include phones {
         width: 100%;
@@ -27,14 +28,17 @@
     position: relative;
     max-width: 975px;
     max-height: 549px;
+    height: 549px;
+
     width: 94.8%;
+    display: flex;
     @include desktop {
         max-width: 637.57px;
         max-height: 359px;
     }
     @include tablets {
-        max-width: 637.57px;
-        max-height: 359px;
+        max-width: 637.57PX;
+        max-height: 359PX;
     }
     @include phones {
         width: 100%;
@@ -93,6 +97,39 @@
         object-fit: fill;
     }
 }
+.list-slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-height: 549px;
+    overflow: hidden;
+}
+.preview-slider {
+    position: absolute;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 400%;
+    height: 100%;
+    max-height: 549px;
+}
+.preview_img {
+    position: relative;
+    vertical-align: left;
+    display: inline-block;
+    object-fit: top cover;
+    width: 25%;
+    height: 100%;
+    max-height: 549px;
+    transform: translateX(-100%);
+    &.next {
+        transform: translateX(-200%);
+        transition: 1s;
+    }
+    &.prev {
+        transform: translateX(0%);
+        transition: 1s;
+    }
+}
 .active {
     border: 3px solid #dc9322;
 }
@@ -105,7 +142,7 @@
     right: 0;
     height: 100%;
     @include desktop {
-        width: 34.66px;
+        width: 34.66PX;
         height: auto;
         bottom: 10%;
     }
@@ -119,12 +156,15 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 53px;
+    width: 53PX;
     height: 106px;
     top: 71%;
+    &.block {
+        pointer-events: none;
+    }
     @include desktop {
-        width: 34.66px;
-        height: 69.32px;
+        width: 34.66PX;
+        height: 69.32PX;
         top: 71%;
     }
     @include phones {
@@ -149,8 +189,8 @@
 }
 .slider-next {
     fill: #ffffff;
-    width: 10.12px;
-    height: 17.37px;
+    width: 10.12PX;
+    height: 17.37PX;
     background: svg-load(
             "arrowNext.svg",
             fill=white,

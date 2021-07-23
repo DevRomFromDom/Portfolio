@@ -2,10 +2,12 @@
     width: 100%;
     display: flex;
     height: auto;
+    position: relative;
     
 }
 
 .skills {
+    position: relative;
     margin-top: 7.5%;
     // max-height: 780PX;
     max-width: 903PX;
@@ -17,16 +19,16 @@
         background: url("~images/content/guitar.png") left bottom / contain
             no-repeat;
         display: block;
-        top: -27.2%;
-        left: 0%;
-        height: 79%;
+        top: -77.3%;
+        left: -72.8%;
+        height: 175%;
         width: 36vw;
         max-width: 633PX;
     }
     @include desktop {
         &::before {
-            top: -23.25%;
-            left: -9.25%;
+            top: -84%;
+            left: -52%;
         }
         margin-top: 5.9%;
         margin-left: 28.01%;
@@ -43,7 +45,7 @@
             no-repeat;
             bottom: 0;
             left: 50%;
-            top:52.1%;
+            top:117%;
             transform: translate(-50%,-50%);
             background-position: center center;
             max-height: 361PX;
@@ -60,20 +62,21 @@
        
         margin: 0 auto;
         margin-top:21.7%;
-        margin-bottom: 92.2%;
+        margin-bottom: 40.2%;
         
         
         &::before{
+            position: absolute;
             background: url("~images/content/guitar-2.png") left bottom / contain
             no-repeat;
-            bottom: 0;
-            left: 68%;
-            top:55.4%;
+            
             transform: translate(-50%,-50%);
             background-position: center center;
             max-height: 201PX;
             height: 52.47%;
             width: 120%;
+            left: 68%;
+            top: 104%;
         }
     }
 }
