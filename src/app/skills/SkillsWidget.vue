@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import $axios from "../../admin/requests";
 import SkillItem from "./SkillItem.vue";
 export default {
     data() {
@@ -18,7 +18,16 @@ export default {
     },
     async created() {
         try {
-            const {data} = await axios.get(
+            const token = await localStorage.getItem("token");
+            if (token) {
+                const res = await $axios.get("/user");
+                const {data} = await $axios.get(
+                `/categories/${res.data.user.id}`
+            );
+            this.skills = data
+                return
+            }
+            const {data} = await $axios.get(
                 "https://webdev-api.loftschool.com/categories/486"
             );
             this.skills = data

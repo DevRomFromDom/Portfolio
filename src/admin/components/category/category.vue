@@ -8,6 +8,7 @@
             :errorText="onTitleError"
             @approve="$emit('approveTitle', [$event,id])"
             @input="changeInput($event)"
+            @noChange="$emit('noChange')"
         />
         <template slot="content">
             <ul class="skills" v-if="empty === false">

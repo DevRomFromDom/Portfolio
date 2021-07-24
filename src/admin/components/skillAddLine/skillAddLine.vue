@@ -38,13 +38,13 @@ export default {
     mixins:[ValidatorMixin],
     validators:{
         "curTitle": (value)=>{
-            return Validator.value(value).required("Не может быть пустым");
+            return Validator.value(value).required("Заполните поле");
         },
         "curPercent": (value)=>{
             return Validator.value(value)
             .integer("Должно быть числом")
             .between(0,100, "Не корректное значение")
-            .required("Не может быть пустым")
+            .required("Заполните поле")
         }
     },
     props: {

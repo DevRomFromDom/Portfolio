@@ -7,7 +7,7 @@
 <script>
 import ProjectsSlider from "./ProjectsSlider.vue";
 import ProjectsInfo from "./ProjectsInfo.vue";
-import axios from "axios";
+import $axios from "../../admin/requests";
 export default {
     data() {
         return {
@@ -51,7 +51,19 @@ export default {
     },
     async created() {
         try {
-            const { data } = await axios.get(
+            const token = await localStorage.getItem("token");
+            if (token) {
+                const res = await $axios.get("/user");
+                const { data } = await $axios.get(
+                    `/works/${res.data.user.id}`
+                );
+                this.projects = await data.map((item) => {
+                    item.photo = `https://webdev-api.loftschool.com/${item.photo}`;
+                    return item;
+                });
+                return
+            }
+            const { data } = await $axios.get(
                 "https://webdev-api.loftschool.com/works/486"
             );
             this.projects = await data.map((item) => {

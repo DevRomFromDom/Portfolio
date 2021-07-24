@@ -12,7 +12,7 @@
                 <app-input
                     placeholder="Название новой группы"
                     :value="value"
-                    :errorMessage="errorText"
+                    :errorMessage="validation.firstError('value')"
                     @input="$emit('input', $event)"
                     @keydown.native.enter="onApprove"
                     autofocus="autofocus"
@@ -32,7 +32,14 @@
 </template>
 
 <script>
+import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
 export default {
+    mixins:[ValidatorMixin],
+    validators:{
+        "value": (value)=>{
+            return Validator.value(value).required("Поле обязательно для заполнения")
+        }
+    },
     props: {
         value: {
             type: String,
@@ -52,25 +59,26 @@ export default {
         };
     },
     methods: {
-        onApprove() {
+        async onApprove() {
+            if((await this.$validate()) === false) return;
             if (
                 this.title.trim() === this.value.trim() &&
                 this.value.trim() !== ""
             ) {
                 this.editmode = false;
             } else {
+                console.log('fgfgfg')
                 if (this.value.trim() !== "") {
                     this.$emit("approve", this.value);
                     this.title = this.value
                     this.editmode = false;
-                } else {
-                    this.$emit("approve", this.value);
                 }
             }
         },
         noChange(){
             this.editmode = false;
-            this.title = this.value
+            this.value = this.title
+            this.$emit("noChange")
         }
     },
     components: {

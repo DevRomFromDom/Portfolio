@@ -22,8 +22,8 @@
             <app-input
                 v-model="currentSkill.title"
                 noSidePaddings
-                :errorMessage="errorInputTitle"
-                @input="changeTitle"
+                :errorMessage="validation.firstError('currentSkill.title')"
+                @input="validation.reset()"
             />
         </div>
         <div class="percent">
@@ -33,8 +33,8 @@
                 min="0"
                 max="100"
                 maxlength="3"
-                :errorMessage="errorInputPersent"
-                @input="changePercent"
+                :errorMessage="validation.firstError('currentSkill.percent')"
+                @input="validation.reset()"
             />
         </div>
         <div class="buttons">
@@ -51,8 +51,17 @@
 <script>
 import icon from "../icon/icon.vue";
 import appInput from "../input/input.vue";
-
+import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
 export default {
+    mixins:[ValidatorMixin],
+    validators:{
+        "currentSkill.title":(value)=>{
+            return Validator.value(value).required("Заполните поле")
+        },
+        "currentSkill.percent":(value)=>{
+            return Validator.value(value).lessThanOrEqualTo(100,"Не может быть больше 100%").required("Заполните поле")
+        },
+    },
     props: {
         skill: {
             type: Object,
@@ -66,7 +75,7 @@ export default {
             currentSkill: {
                 id: this.skill.id,
                 title: this.skill.title,
-                percent: this.skill.percent,
+                percent: Number(this.skill.percent),
                 category: this.skill.category
             },
             errorInputTitle: "",
@@ -81,34 +90,22 @@ export default {
         changeEditMode() {
             this.editMode = !this.editMode;
         },
-        approveSkill(curskill) {
+        async approveSkill(curskill) {
             const title = curskill.title.trim();
             const percent = curskill.percent;
+            if(( await this.$validate()) === false) return;
             if (
                 title === this.skill.title.trim() &&
                 percent === this.skill.percent
             ) {
                 this.editMode = false;
                 return;
-            } else {
-                if (title === "") {
-                    this.errorInputTitle = "Заполните поле";
-                }
-                if (percent === "") {
-                    this.errorInputPersent = "Заполните поле";
-                } else if (title !== "" && percent !== "") {
-                    this.$emit("approve", curskill);
-                    this.editMode = false;
-                }
+            } 
+            this.$emit("approve", curskill);
+            this.editMode = false;
             }
         },
-        changeTitle() {
-            this.errorInputTitle = "";
-        },
-        changePercent() {
-            this.errorInputPersent = "";
-        },
-    },
+    
 };
 </script>
 

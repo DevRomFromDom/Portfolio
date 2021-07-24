@@ -16,6 +16,7 @@
                         @removeCategory="closeEmptyCegory"
                         @approveTitle="approveTitle($event)"
                         empty
+                        @noChange="emptyCatIsAdded = false"
                     />
                 </li>
                 <li

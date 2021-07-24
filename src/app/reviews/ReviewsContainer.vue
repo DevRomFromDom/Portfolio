@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import axios from "axios"
+import $axios from "../../admin/requests";
 import { SwiperSlide, Swiper } from "vue-awesome-swiper";
 export default {
     components: {
@@ -36,15 +36,15 @@ export default {
     data() {
         return {
             reviews: [],
-            sliderIsEnd:false,
+            sliderIsEnd: false,
             sliderActiveIndex: 0,
             sliderOptions: {
                 slidesPerView: 1,
                 slidesPerGroup: 1,
                 breakpoints: {
-                    480: { 
-                        slidesPerView: 2, 
-                        slidesPerGroup: 2, 
+                    480: {
+                        slidesPerView: 2,
+                        slidesPerGroup: 2,
                     },
                 },
             },
@@ -52,7 +52,6 @@ export default {
     },
     methods: {
         slide(direction) {
-
             switch (direction) {
                 case "next":
                     this.getMySwiper.slideNext();
@@ -64,18 +63,36 @@ export default {
         },
         onSlideChange() {
             this.sliderActiveIndex = this.getMySwiper.activeIndex;
-            this.sliderIsEnd = this.getMySwiper.isEnd
+            this.sliderIsEnd = this.getMySwiper.isEnd;
         },
     },
     async created() {
+        if (window.innerWidth <= 480) {
+            this.sliderIsEnd = true;
+        } else if (this.reviews.length <= 2) {
+            this.sliderIsEnd = true;
+        }
+
         try {
-            const { data } = await axios.get(
-                "https://webdev-api.loftschool.com/reviews/486"
-            );
-            this.reviews = await data.map((item) => {
-                item.photo = `https://webdev-api.loftschool.com/${item.photo}`;
-                return item;
-            });
+            const token = await localStorage.getItem("token");
+            if (token) {
+                const res = await $axios.get("/user");
+                const { data } = await $axios.get(
+                    `/reviews/${res.data.user.id}`
+                );
+                this.reviews = await data.map((item) => {
+                    item.photo = `https://webdev-api.loftschool.com/${item.photo}`;
+                    return item;
+                });
+            } else {
+                const { data } = await $axios.get(
+                    "https://webdev-api.loftschool.com/reviews/486"
+                );
+                this.reviews = await data.map((item) => {
+                    item.photo = `https://webdev-api.loftschool.com/${item.photo}`;
+                    return item;
+                });
+            }
         } catch (error) {
             throw new Error(error);
         }

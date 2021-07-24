@@ -5,7 +5,7 @@ export default {
     },
     mutations: {
         SET_CATEGORIES: (state, categories) => (state.data = categories),
-        ADD_CATEGORY: (state, category) => state.data.unshift(category),
+        ADD_CATEGORY: (state, category) => state.data.unshift({...category, skills: []}),
         DELETE_CATEGORY: (state, id) =>
             (state.data = state.data.filter((el) => el.id !== id)),
         EDIT_CATEGORY: (state, { title, id }) =>
@@ -15,13 +15,17 @@ export default {
                 }
                 return cat;
             })),
-        ADD_SKILL: (state, data) =>
-            (state.data = state.data.map((el) => {
-                if (el.id === data.category) {
-                    el.skills.push(data);
+        ADD_SKILL: (state, skill) => {
+            state.data.map((el) => {
+                if (el.id === skill.category) {
+                    console.log(el.skills)
+                    el.skills !== undefined?  el.skills.push(skill) : {...el, skills: [skill]}
+               
                 }
-                return el;
-            })),
+                 return el;
+            });
+        },
+
         DELETE_SKILL: (state, { skillId, categoryId }) =>
             (state.data = state.data.map((category) => {
                 if (category.id === categoryId) {
@@ -55,10 +59,10 @@ export default {
             })),
     },
     actions: {
-        async getCategories({ commit,dispatch }) {
+        async getCategories({ commit, dispatch }) {
             try {
                 const userData = await this.$axios.get("/user");
-                const {data} = await this.$axios.get(
+                const { data } = await this.$axios.get(
                     `/categories/${userData.data.user.id}`
                 );
                 commit("SET_CATEGORIES", data);
@@ -101,7 +105,7 @@ export default {
         async removeCategory({ dispatch, commit }, id) {
             try {
                 const res = await this.$axios.delete(`/categories/${id}`);
-                console.log(res)
+                console.log(res);
                 commit("DELETE_CATEGORY", id);
                 dispatch(
                     "tooltips/show",

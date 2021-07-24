@@ -42,11 +42,11 @@ export default {
                 this.next = true;
                 this.block = true;
                 setTimeout(() => {
+                    this.$emit("slide", direction);
                     const a = this.arrS.splice(0, 1);
-                    console.log(a, this.arrS);
                     this.arrS = [this.arrS, ...a].flat();
                     this.block = false;
-                    this.$emit("slide", direction);
+                    
                 }, 1200);
             } else {
                 this.prev = true;
@@ -63,7 +63,7 @@ export default {
     created() {
         this.arrS = [...this.projects];
         const addImg = this.arrS[this.arrS.length - 1];
-        const popArr = this.arrS.pop();
+        this.arrS.pop();
         const arr = [addImg, this.arrS];
         this.arrS = arr.flat();
     },
