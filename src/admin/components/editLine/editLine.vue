@@ -3,7 +3,7 @@
         <div class="title" v-if="editmode === false">
             <div class="text">{{ value }}</div>
             <div class="icons">
-                <icon symbol="pencil" grayscale @click="editmode = true"></icon>
+                <icon symbol="pencil" class="edit" grayscale @click="editmode = true"></icon>
                 <icon grayscale symbol="trash"  @click="$emit('removeCategory')"/>
             </div>
         </div>
@@ -24,7 +24,7 @@
                     <icon symbol="tick" @click="onApprove"></icon>
                 </div>
                 <div class="button-icon">
-                    <icon symbol="cross" @click="noChange"></icon>
+                    <icon symbol="cross" @click="noChange" class="noChange"></icon>
                 </div>
             </div>
         </div>
@@ -33,6 +33,8 @@
 
 <script>
 import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
+import icon from "../icon/icon.vue";
+import appInput from "../input/input.vue"
 export default {
     mixins:[ValidatorMixin],
     validators:{
@@ -82,8 +84,8 @@ export default {
         }
     },
     components: {
-        icon: () => import("components/icon"),
-        appInput: () => import("components/input"),
+        icon,
+        appInput
     },
 };
 </script>

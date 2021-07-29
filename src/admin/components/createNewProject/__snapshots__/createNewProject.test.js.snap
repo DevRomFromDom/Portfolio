@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateNewProject has been mounted 1`] = `
+<div
+  class="create-project-component"
+>
+  <div
+    class="card-component"
+  >
+    <div
+      class="header"
+    >
+      <div
+        class="text"
+      />
+       
+    </div>
+     
+    <div
+      class="content"
+    >
+      <form
+        class="from-container"
+      >
+        <div
+          class="form-cols"
+        >
+          <div
+            class="form-col"
+          >
+            <div
+              class="image-load"
+            >
+              <label
+                class="uploader"
+                style="background-image: url();"
+              >
+                <!---->
+                 
+                <!---->
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+           
+          <div
+            class="form-col"
+          >
+            <div
+              class="form-row"
+            >
+              <label
+                class="input input_labeled"
+              >
+                <div
+                  class="title"
+                >
+                  Название
+                </div>
+                 
+                <input
+                  class="input__elem field__elem"
+                />
+                 
+                <div
+                  class="input__error-tooltip"
+                >
+                  <div
+                    class="input__error-tooltip-container"
+                  >
+                    
+                  </div>
+                </div>
+              </label>
+            </div>
+             
+            <div
+              class="form-row"
+            >
+              <label
+                class="input input_labeled"
+              >
+                <div
+                  class="title"
+                >
+                  Ссылка
+                </div>
+                 
+                <input
+                  class="input__elem field__elem"
+                />
+                 
+                <div
+                  class="input__error-tooltip"
+                >
+                  <div
+                    class="input__error-tooltip-container"
+                  >
+                    
+                  </div>
+                </div>
+              </label>
+            </div>
+             
+            <div
+              class="form-row"
+            >
+              <label
+                class="textarea"
+              >
+                <div
+                  class="title"
+                >
+                  Описание
+                </div>
+                 
+                <textarea
+                  class="textarea__elem field__elem"
+                />
+                 
+                <div
+                  class="input__error-tooltip"
+                >
+                  <div
+                    class="input__error-tooltip-container"
+                  >
+                    
+                  </div>
+                </div>
+              </label>
+            </div>
+             
+            <div
+              class="form-row"
+            >
+              <div
+                class="tags-adder-component"
+              >
+                <label
+                  class="input input_labeled"
+                >
+                  <div
+                    class="title"
+                  >
+                    Добавление тэга
+                  </div>
+                   
+                  <input
+                    class="input__elem field__elem"
+                  />
+                   
+                  <div
+                    class="input__error-tooltip"
+                  >
+                    <div
+                      class="input__error-tooltip-container"
+                    >
+                      
+                    </div>
+                  </div>
+                </label>
+                 
+                <ul
+                  class="tags"
+                >
+                  <li
+                    class="tag"
+                  >
+                    <div
+                      class="tag interactive"
+                    >
+                      <span>
+                        fgf
+                      </span>
+                       
+                      <button
+                        class="remove"
+                        type="button"
+                      />
+                    </div>
+                  </li>
+                  <li
+                    class="tag"
+                  >
+                    <div
+                      class="tag interactive"
+                    >
+                      <span>
+                        fgfg
+                      </span>
+                       
+                      <button
+                        class="remove"
+                        type="button"
+                      />
+                    </div>
+                  </li>
+                  <li
+                    class="tag"
+                  >
+                    <div
+                      class="tag interactive"
+                    >
+                      <span>
+                        fgfg
+                      </span>
+                       
+                      <button
+                        class="remove"
+                        type="button"
+                      />
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="form-buttons"
+        >
+          <div
+            class="btn"
+          >
+            <!---->
+          </div>
+           
+          <div
+            class="btn"
+          >
+            <!---->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

@@ -11,7 +11,8 @@
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
         "deploy": "gh-pages -d dist",
-        "predeploy": "yarn build"
+        "predeploy": "yarn build",
+        "test": "jest -o --watch"
     },
     "keywords": [],
     "author": "",
@@ -28,6 +29,7 @@
         "@storybook/addons": "^5.3.19",
         "@storybook/source-loader": "^5.3.19",
         "@storybook/vue": "^5.3.19",
+        "@vue/test-utils": "^1.2.2",
         "autoprefixer": "^9.4.8",
         "babel-loader": "^8.0.5",
         "babel-preset-vue": "^2.0.2",
@@ -36,6 +38,9 @@
         "cssnano": "^4.1.10",
         "file-loader": "^6.0.0",
         "html-webpack-plugin": "^4.3.0",
+        "jest": "^27.0.6",
+        "jsdom": "^16.6.0",
+        "jsdom-global": "^3.0.2",
         "mini-css-extract-plugin": "^0.9.0",
         "optimize-css-assets-webpack-plugin": "^5.0.1",
         "postcss-advanced-variables": "^3.0.0",
@@ -55,6 +60,7 @@
         "svg-transform-loader": "^2.0.13",
         "svgo-loader": "^2.2.0",
         "terser-webpack-plugin": "^3.0.6",
+        "vue-jest": "^3.0.7",
         "vue-loader": "^15.6.4",
         "vue-template-compiler": "^2.6.7",
         "webpack": "^4.29.5",
@@ -67,6 +73,7 @@
     "dependencies": {
         "@babel/plugin-transform-runtime": "^7.14.5",
         "axios": "^0.21.1",
+        "babel-core": "7.0.0-bridge.0",
         "gh-pages": "^3.2.2",
         "normalize.css": "^8.0.1",
         "promptly": "^3.0.3",

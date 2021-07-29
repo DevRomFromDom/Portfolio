@@ -6,7 +6,7 @@
                 button.review__nav-item(@click="slide('prev')" :class="{dis:sliderActiveIndex === 0}") 
                     .review-arrow
                         .review-passed.arrow-review
-                button.review__nav-item(@click="slide('next')" :class="{dis: sliderIsEnd}") 
+                button.review__nav-item(@click="slide('next')" :class="{dis: sliderIsEnd || disNextButton}") 
                     .review-arrow.next-review
                         .review-next.arrow-revive
         .reviews__content
@@ -67,15 +67,9 @@ export default {
         },
     },
     async created() {
-        if (window.innerWidth <= 480) {
-            this.sliderIsEnd = true;
-        } else if (this.reviews.length <= 2) {
-            this.sliderIsEnd = true;
-        }
-
-        try {
-            const token = await localStorage.getItem("token");
-            if (token) {
+        const token = await localStorage.getItem("token");
+        if (token) {
+            try {
                 const res = await $axios.get("/user");
                 const { data } = await $axios.get(
                     `/reviews/${res.data.user.id}`
@@ -84,7 +78,11 @@ export default {
                     item.photo = `https://webdev-api.loftschool.com/${item.photo}`;
                     return item;
                 });
-            } else {
+            } catch (error) {
+                throw new Error(error);
+            }
+        } else {
+            try {
                 const { data } = await $axios.get(
                     "https://webdev-api.loftschool.com/reviews/486"
                 );
@@ -92,9 +90,9 @@ export default {
                     item.photo = `https://webdev-api.loftschool.com/${item.photo}`;
                     return item;
                 });
+            } catch (error) {
+                throw new Error(error);
             }
-        } catch (error) {
-            throw new Error(error);
         }
     },
     computed: {
@@ -103,6 +101,18 @@ export default {
         },
         getMySwiper() {
             return this.$refs.mySlider.$swiper;
+        },
+        windWidth() {
+            return window.innerWidth;
+        },
+        disNextButton() {
+           if(this.reviews.length <= 2 && window.innerWidth > 480){
+               return true
+           }
+           if(this.reviews.length <= 1 & window.innerWidth <= 480){
+               return true
+           }
+           return false
         },
     },
 };

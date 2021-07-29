@@ -21,8 +21,8 @@ axios.interceptors.response.use(
             const token = response.data.token;
             await localStorage.setItem("token", token);
             axios.defaults.headers["Authorization"] = `Bearer ${token}`;
-            config.defaults.headers["Authorization"] = `Bearer ${token}`;
-            return axios(origReq)
+            config.headers["Authorization"] = `Bearer ${token}`;
+            return axios(config)
         }
 
         return Promise.reject(error);

@@ -5,6 +5,7 @@
         </div>
         <div class="projects__content-container">
             <create-new-project
+                class="cnp"
                 v-if="projectModalIsAcrive"
                 :modalTitle="modalTitle"
                 @closeModal="closeModal"
@@ -13,6 +14,7 @@
             />
             <div class="create-project" v-if="projectModalIsAcrive === false">
                 <square-btn
+                    class="create-button"
                     type="square"
                     title="Добавить работу"
                     @click="addNewProject"
@@ -37,9 +39,7 @@ import squareBtn from "../../components/button";
 import CreateNewProject from "../../components/createNewProject/createNewProject.vue";
 import { mapActions, mapState } from "vuex";
 export default {
-    created() {
-        this.getProjectsAction();
-    },
+   
     computed: {
         ...mapState("projects", { projects: (state) => state.data }),
     },
@@ -82,6 +82,9 @@ export default {
             this.editProjectData = {};
             this.projectModalIsAcrive = false;
         },
+    },
+    created() {
+        this.getProjectsAction();
     },
 };
 </script>

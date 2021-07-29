@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditLine has been mounted 1`] = `
+<div
+  class="edit-line-component"
+>
+  <div
+    class="title"
+  >
+    <div
+      class="text"
+    >
+      
+    </div>
+     
+    <div
+      class="icons"
+    >
+      <button
+        class="edit icon-component is-pencil grayscale no-words"
+        data-text=""
+        type="button"
+      />
+       
+      <button
+        class="icon-component is-trash grayscale no-words"
+        data-text=""
+        type="button"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EditLine has been mounted 2`] = `
+<div
+  class="edit-line-component"
+>
+  <div
+    class="title"
+  >
+    <div
+      class="input"
+    >
+      <label
+        class="input no-side-paddings"
+      >
+        <!---->
+         
+        <input
+          autofocus="autofocus"
+          class="input__elem field__elem"
+          placeholder="Название новой группы"
+        />
+         
+        <div
+          class="input__error-tooltip"
+        >
+          <div
+            class="input__error-tooltip-container"
+          >
+            
+          </div>
+        </div>
+      </label>
+    </div>
+     
+    <div
+      class="buttons"
+    >
+      <div
+        class="button-icon"
+      >
+        <button
+          class="icon-component is-tick no-words"
+          data-text=""
+          type="button"
+        />
+      </div>
+       
+      <div
+        class="button-icon"
+      >
+        <button
+          class="noChange icon-component is-cross no-words"
+          data-text=""
+          type="button"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EditLine has been mounted 3`] = `
+<div
+  class="edit-line-component"
+>
+  <div
+    class="title"
+  >
+    <div
+      class="text"
+    >
+      
+    </div>
+     
+    <div
+      class="icons"
+    >
+      <button
+        class="edit icon-component is-pencil grayscale no-words"
+        data-text=""
+        type="button"
+      />
+       
+      <button
+        class="icon-component is-trash grayscale no-words"
+        data-text=""
+        type="button"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cayegory has been mounted 1`] = `
+<card-stub
+  slim=""
+  title=""
+>
+  <edit-line-stub
+    errortext=""
+    value="title"
+  />
+   
+  <template>
+    <ul
+      class="skills"
+    >
+      <li
+        class="item"
+      >
+        <skill-stub
+          skill="[object Object]"
+        />
+      </li>
+      <li
+        class="item"
+      >
+        <skill-stub
+          skill="[object Object]"
+        />
+      </li>
+      <li
+        class="item"
+      >
+        <skill-stub
+          skill="[object Object]"
+        />
+      </li>
+    </ul>
+     
+    <div
+      class="buttom-line"
+    >
+      <skill-add-line-stub />
+    </div>
+  </template>
+</card-stub>
+`;

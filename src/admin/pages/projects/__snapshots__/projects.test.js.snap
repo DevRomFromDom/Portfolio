@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component has been mounted 1`] = `
+<div
+  class="page-content"
+>
+  <div
+    class="header"
+  >
+    <div
+      class="title"
+    >
+      Блок «Работы»
+    </div>
+  </div>
+   
+  <div
+    class="projects__content-container"
+  >
+    <!---->
+     
+    <div
+      class="create-project"
+    >
+      <square-btn-stub
+        class="create-button"
+        title="Добавить работу"
+        type="square"
+      />
+    </div>
+     
+  </div>
+</div>
+`;

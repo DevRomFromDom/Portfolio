@@ -125,6 +125,7 @@
 .dis{
     border: 3PX solid gray;
     cursor: auto;
+    pointer-events: none;
     &:hover{
         border: 3PX solid gray;
         .review-passed{
@@ -244,7 +245,7 @@
     width: 444PX;
     height: 226PX;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     overflow: hidden;
 
     @include tablets {

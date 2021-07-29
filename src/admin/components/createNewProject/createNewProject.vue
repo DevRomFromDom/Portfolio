@@ -1,7 +1,11 @@
 <template>
     <div class="create-project-component">
         <card :title="modalTitle">
-            <form slot="content" class="from-container" @submit.prevent="handleSubmit">
+            <form
+                slot="content"
+                class="from-container"
+                @submit.prevent="handleSubmit"
+            >
                 <div class="form-cols">
                     <div class="form-col">
                         <div class="image-load">
@@ -154,9 +158,9 @@ export default {
             addNewProjectAction: "projects/addNewProject",
             editProjectAction: "projects/editProject",
         }),
-        resetChanges(e){
+        resetChanges(e) {
             e.preventDefault();
-            this.$emit('reset')
+            this.$emit("reset");
         },
         handleDragOver(e) {
             e.preventDefault();

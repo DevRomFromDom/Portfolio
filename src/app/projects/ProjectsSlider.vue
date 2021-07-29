@@ -3,14 +3,11 @@
         .slider__preview(:data-preview="sliderIndex")
             ul.list-slider 
                 li.preview-slider
-                    img(:src="item.photo" v-for="(item, index) in arrS" :key="item.index" :class="['preview_img',{prev: prev},{next:next}]")
-            .slider__miniature
-                .miniature__item(
-                    :data-slide="slide.id" 
-                    v-for="(slide,index) in miniArr" :key="slide.index"
-                    :class="{active: index === 0}"
-                )
-                    img(:src="slide.photo").preview
+                    img(:src="item.photo" v-for="(item, index) in viewArr" :key="item.index" :class="['preview_img',{prev: prev},{next:next}]")
+            .slider-mini__container
+                ul.slider__miniature
+                    li( class="miniature__item")
+                        img(:src="slide.photo" v-for="(slide,index) in viewArr" :key="slide.index" :class="['mini-img',{prev: prev},{next:next},{active: index === 1}]")
         .nav__container
             nav(:class="['slider__nav', {block: block}]")
                 button.nav-button(@click="slide('next')")
@@ -27,13 +24,13 @@ export default {
         projects: Array,
         currentIndex: Number,
         sliderIndex: Number,
-        prev: false,
-        next: false,
     },
     data() {
         return {
             arrS: [],
             block: false,
+            prev: false,
+            next: false,
         };
     },
     methods: {
@@ -45,15 +42,16 @@ export default {
                     this.$emit("slide", direction);
                     const a = this.arrS.splice(0, 1);
                     this.arrS = [this.arrS, ...a].flat();
+                    this.next = false;
                     this.block = false;
-                    
                 }, 1200);
             } else {
                 this.prev = true;
                 this.block = true;
                 setTimeout(() => {
                     const a = this.arrS.pop();
-                    this.arrS = [a,...this.arrS].flat();
+                    this.arrS = [a, ...this.arrS].flat();
+                    this.prev = false;
                     this.block = false;
                     this.$emit("slide", direction);
                 }, 1000);
@@ -68,11 +66,13 @@ export default {
         this.arrS = arr.flat();
     },
     computed: {
-        miniArr() {
-            const a = [...this.arrS];
-            a.push(a[0]);
-            a.shift();
-            return a;
+        viewArr() {
+            this.arrS = [...this.projects];
+            const addImg = this.arrS[this.arrS.length - 1];
+            this.arrS.pop();
+            const arr = [addImg, this.arrS];
+             
+            return arr.flat();
         },
     },
 };

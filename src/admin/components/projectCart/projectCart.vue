@@ -1,5 +1,5 @@
 <template>
-    <div :class="['project-component', {active: editCurProject}]">
+    <div :class="['project-component', {active: editCurProject}]" v-if="project">
         <div class="project-container">
             <div class="project-header">
                 <div class="header-tags">
@@ -31,13 +31,14 @@
             </div>
             <div :class="['project-buttons', { blocked: modalOpen }]">
                 <div class="edit" @click="$emit('editProject', project)">
-                    <icon title="Править" :grayscale="modalOpen" />
+                    <icon title="Править" :grayscale="modalOpen" class="edit-icon" />
                 </div>
                 <div class="delete" @click="$emit('remove', project.id)">
                     <icon
                         title="Удалить"
                         symbol="cross"
                         :grayscale="modalOpen"
+                        class="delete-icon"
                     />
                 </div>
             </div>
@@ -46,7 +47,7 @@
 </template>
 
 <script>
-import icon from "../icon";
+import icon from "../icon/icon.vue";
 import tag from "../tag";
 export default {
     props: {
